@@ -1,0 +1,387 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Microsoft Blue */
+    --primary: 207 100% 42%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 207 100% 42%;
+
+    --radius: 0.5rem;
+
+    /* Fluent UI specific variables */
+    --acrylic-opacity: 0.8;
+    --acrylic-blur: 20px;
+    --reveal-glow: 0 0 10px rgba(0, 120, 212, 0.2);
+    --reveal-border: rgba(0, 120, 212, 0.3);
+    --depth-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --depth-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --depth-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --motion-duration: 0.2s;
+    --motion-ease: cubic-bezier(0.33, 1, 0.68, 1);
+    --mica-opacity: 0.9;
+
+    /* Microsoft brand colors */
+    --ms-blue: 207 100% 42%;
+    --ms-red: 6 78% 57%;
+    --ms-green: 120 80% 28%;
+    --ms-yellow: 40 100% 50%;
+
+    /* UWU & Sri Lankan inspired colors */
+    --uwu-tea-green: 120 30% 70%;
+    --uwu-mountain-blue: 207 100% 42%;
+    --uwu-waterfall-cyan: 190 80% 60%;
+    --uwu-cinnamon-brown: 25 60% 40%;
+    --uwu-scenic-purple: 280 50% 60%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Microsoft Blue - darker for dark mode */
+    --primary: 207 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 207 100% 50%;
+
+    /* Fluent UI specific variables for dark mode */
+    --acrylic-opacity: 0.7;
+    --reveal-glow: 0 0 10px rgba(72, 180, 255, 0.25);
+    --reveal-border: rgba(72, 180, 255, 0.4);
+    --depth-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --depth-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --depth-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --mica-opacity: 0.85;
+
+    /* Microsoft brand colors - dark mode */
+    --ms-blue: 207 100% 50%;
+    --ms-red: 6 78% 57%;
+    --ms-green: 120 60% 33%;
+    --ms-yellow: 40 100% 55%;
+
+    /* UWU & Sri Lankan inspired colors - dark mode */
+    --uwu-tea-green: 120 20% 40%;
+    --uwu-mountain-blue: 207 100% 42%;
+    --uwu-waterfall-cyan: 190 60% 30%;
+    --uwu-cinnamon-brown: 25 40% 30%;
+    --uwu-scenic-purple: 280 30% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Fluent UI specific utility classes */
+@layer components {
+  /* Acrylic effect */
+  .acrylic {
+    backdrop-filter: blur(var(--acrylic-blur));
+    background-color: rgba(255, 255, 255, var(--acrylic-opacity));
+  }
+
+  .dark .acrylic {
+    background-color: rgba(0, 0, 0, var(--acrylic-opacity));
+  }
+
+  /* Mica effect */
+  .mica {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, var(--mica-opacity));
+  }
+
+  .dark .mica {
+    background-color: rgba(0, 0, 0, var(--mica-opacity));
+  }
+
+  /* Reveal effect */
+  .reveal {
+    transition: all 0.2s;
+  }
+
+  .reveal:hover {
+    box-shadow: var(--reveal-glow);
+    border-color: var(--reveal-border);
+  }
+
+  /* Depth effects */
+  .depth-1 {
+    box-shadow: var(--depth-shadow-sm);
+  }
+
+  .depth-2 {
+    box-shadow: var(--depth-shadow-md);
+  }
+
+  .depth-3 {
+    box-shadow: var(--depth-shadow-lg);
+  }
+
+  /* Motion effects */
+  .motion-fade {
+    transition-property: opacity;
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  .motion-slide {
+    transition-property: transform;
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  .motion-scale {
+    transition-property: transform;
+    transition-duration: var(--motion-duration);
+    transition-timing-function: var(--motion-ease);
+  }
+
+  .motion-scale:active {
+    transform: scale(0.95);
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes float-slow {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #0078d4, #50e6ff);
+  }
+
+  /* Glassmorphism */
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glassmorphism {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Microsoft brand color utilities */
+  .bg-ms-blue {
+    background-color: #0078d4;
+  }
+
+  .bg-ms-red {
+    background-color: #e74c3c;
+  }
+
+  .bg-ms-green {
+    background-color: #107c10;
+  }
+
+  .bg-ms-yellow {
+    background-color: #ffb900;
+  }
+
+  .text-ms-blue {
+    color: #0078d4;
+  }
+
+  .text-ms-red {
+    color: #e74c3c;
+  }
+
+  .text-ms-green {
+    color: #107c10;
+  }
+
+  .text-ms-yellow {
+    color: #ffb900;
+  }
+
+  /* UWU & Sri Lankan inspired elements */
+  .uwu-tea-pattern {
+    position: relative;
+  }
+
+  .uwu-tea-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z' fill='%230078d4' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    z-index: -1;
+  }
+
+  .uwu-mountain-border {
+    position: relative;
+  }
+
+  .uwu-mountain-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      rgba(var(--uwu-mountain-blue), 0.1) 0%,
+      rgba(var(--uwu-mountain-blue), 0.3) 50%,
+      rgba(var(--uwu-mountain-blue), 0.1) 100%
+    );
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+
+  .uwu-waterfall-accent {
+    position: relative;
+  }
+
+  .uwu-waterfall-accent::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--uwu-waterfall-cyan), 0.3) 0%,
+      rgba(var(--uwu-waterfall-cyan), 0.1) 100%
+    );
+    border-radius: var(--radius) 0 0 var(--radius);
+  }
+
+  .uwu-train-track-divider {
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .uwu-train-track-divider::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background-image: linear-gradient(90deg, transparent, currentColor, transparent),
+      repeating-linear-gradient(90deg, transparent 0px, transparent 8px, currentColor 8px, currentColor 10px);
+    background-position: center top, center bottom;
+    background-size: 100% 1px, 100% 2px;
+    background-repeat: no-repeat, repeat-x;
+    opacity: 0.1;
+  }
+
+  .uwu-tea-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .uwu-tea-card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(var(--uwu-tea-green), 0.2) 0%, rgba(var(--uwu-tea-green), 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .uwu-scenic-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--uwu-mountain-blue), 0.05) 0%,
+      rgba(var(--uwu-scenic-purple), 0.05) 50%,
+      rgba(var(--uwu-waterfall-cyan), 0.05) 100%
+    );
+  }
+
+  .uwu-cinnamon-border {
+    border-left: 3px solid rgba(var(--uwu-cinnamon-brown), 0.2);
+  }
+}
+
