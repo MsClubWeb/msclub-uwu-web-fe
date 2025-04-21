@@ -66,6 +66,26 @@ const upcomingEvents = [
     image: "/placeholder.svg?height=250&width=500",
     category: "Productivity",
   },
+  {
+    id: 5,
+    title: "Microsoft Tech Talks – YouTube Series",
+    description: "Engaging YouTube sessions for students, covering the latest in Microsoft technologies including Azure, Power Platform, and more.",
+    date: "June 20, 2025",
+    time: "7:00 PM - 9:00 PM",
+    location: "MS Teams (Online)",
+    image: "/placeholder.svg?height=250&width=500",
+    category: "Productivity",
+  },
+  {
+    id: 6,
+    title: "HackMS’ 2025",
+    description: "A hands-on hackathon focused on building real-world solutions using Microsoft technologies. Network, code, and compete with the best!",
+    date: "July 5-6, 2025",
+    time: "All Day",
+    location: "Uva Wellassa University",
+    image: "/placeholder.svg?height=250&width=500",
+    category: "Hackathon",
+  },
 ]
 
 const pastEvents = [
@@ -96,6 +116,26 @@ const pastEvents = [
     date: "May 5, 2023",
     time: "4:00 PM - 5:30 PM",
     location: "Student Center, Meeting Room A",
+    image: "/placeholder.svg?height=250&width=500",
+    category: "Competition",
+  },
+  {
+    id: 105,
+    title: "Annual General Meeting (AGM)",
+    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
+    date: "January 8, 2025",
+    time: "6:00 PM onwards",
+    location: "TLT",
+    image: "/placeholder.svg?height=250&width=500",
+    category: "Productivity",
+  },
+  {
+    id: 106,
+    title: "Azure Session Series – Unlocking the Power of the Cloud!",
+    description: "A full-day session held at the University of Ruhuna, focused on Azure DevOps, Azure AI, and Azure 101. The event featured practical insights and demonstrations exploring the future of cloud technology.",
+    date: "March 29, 2025",
+    time: "All Day",
+    location: "University of Ruhuna, Lab 11",
     image: "/placeholder.svg?height=250&width=500",
     category: "Competition",
   },
@@ -328,14 +368,7 @@ export default function EventsPage() {
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white/20 depth-1 motion-scale"
-              >
-                <Link href="/events/guidelines">View Guidelines</Link>
-              </Button>
+              
             </div>
           </div>
         </div>
