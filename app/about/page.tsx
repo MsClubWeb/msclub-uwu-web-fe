@@ -410,9 +410,8 @@ export default function AboutPage() {
                   Are there any membership fees?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-4">
-                  No, membership to the Microsoft Student Club is completely
-                  free. However, some special events might have nominal
-                  registration fees to cover costs.
+                A modest membership fee is required to join the Microsoft Student Club, which helps fund
+                various club activities and resources.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
