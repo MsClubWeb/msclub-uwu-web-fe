@@ -211,28 +211,28 @@ export default function AboutPage() {
             <div className="space-y-12">
               {[
                 {
-                  year: "2015",
+                  year: "2024",
                   title: "Foundation",
                   description:
-                    "The Microsoft Student Club was founded by a group of passionate students who saw the potential of Microsoft technologies in shaping the future of tech industry.",
+                    "The Microsoft Club of Uva Wellassa University was founded in 2024 by a group of passionate students who recognized the potential of Microsoft technologies to shape the future of the tech industry.",
                   // image: "/placeholder.svg?height=300&width=500&text=2015",
                   image: "/about_us_page_images/Foundation.jpg", //Added the image in Founding Section
                   position: "left",
                 },
                 {
-                  year: "2017",
-                  title: "First Major Event",
+                  year: "2025",
+                  title: "AGM",
                   description:
-                    "Organized our first major hackathon with over 100 participants from various universities across the country.",
+                    "The Annual General Meeting. held at the beginning of 2025, marked the official launch of the Microsoft Club of Uva Wellassa University. It celebrated the beginning of the club's journey and introduced the initial executive committee, setting the stage for impactful activities ahead.",
                   // image: "/placeholder.svg?height=300&width=500&text=2017",
                   image: "/about_us_page_images/AGM.png", //Added the image in AGM Section
                   position: "right",
                 },
                 {
-                  year: "2019",
-                  title: "Microsoft Partnership",
+                  year: "2025",
+                  title: "Ruhunu Session",
                   description:
-                    "Established official partnership with Microsoft Sri Lanka, opening doors to more resources and opportunities for our members.",
+                    "In March 2025, a collaborative event was held between the MS Club of Uva Wellassa University and the ICT Students' Circle of the University of Ruhuna. The event focused on knowledge sharing, networking, and professional development through interactive sessions and activities that promoted collaboration and enhanced the learning experience  for students from both universities.",
                   // image: "/placeholder.svg?height=300&width=500&text=2019",
                   image: "/about_us_page_images/Ruhunu_Session.jpg", //Added the image in Ruhuna Session Section
                   position: "left",
@@ -254,8 +254,13 @@ export default function AboutPage() {
                 //   position: "left",
                 // },
               ].map((item, index) => (
-                <div
-                  key={item.year}
+                // <div
+                //   key={item.year}
+                //   className="relative z-10 motion-fade animate-in fade-in-0"
+                //   style={{ animationDelay: `${index * 100}ms` }}
+                // >
+                <div  
+                  key={`${item.year}-${index}`}//fixed "duplicate key" warning
                   className="relative z-10 motion-fade animate-in fade-in-0"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
