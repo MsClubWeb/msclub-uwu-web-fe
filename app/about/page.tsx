@@ -18,6 +18,16 @@ import {
   GraduationCap,
   MapPin,
   Clock,
+  Laptop,
+  UserCheck,
+  Megaphone,
+  Globe,
+  CircuitBoard,
+  BrainCog,
+  BrainCircuit,
+  Brain,
+  Sparkles,
+  Handshake,
 } from "lucide-react";
 import { WebPageSchema } from "@/components/structured-data";
 import type { Metadata } from "next";
@@ -97,6 +107,7 @@ export default function AboutPage() {
       {/* Our Mission Section */}
       <section className="w-full py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
         <div className="container">
+        </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative motion-fade animate-in fade-in-0 slide-in-from-left-5">
               <div className="relative aspect-video rounded-xl overflow-hidden depth-3">
@@ -117,12 +128,36 @@ export default function AboutPage() {
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-indigo-200/30 rounded-full backdrop-blur-sm -z-10"></div>
             </div>
 
+      {/* Added Vision Section */}
+
+
+      <div>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">
+                  Our Vision
+                </Badge>
+
+                
+
+                
+                <p className="text-lg text-muted-foreground  mb-2">
+                To create a community of tech-driven leaders who champion Microsoft technologies, 
+                driving innovation aligned with Uva Wellassa University's commitment to value addition and national development.
+                  
+                </p>
+
+
+
+
+      {/* Ending Vision Section? */}
+
+      
+
             <div className="space-y-8 motion-fade animate-in fade-in-0 slide-in-from-right-5">
               <div>
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">
                   Our Mission
                 </Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+                {/* <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
                   Empowering Students Through Technology
                 </h2>
                 <p className="text-lg text-muted-foreground">
@@ -130,7 +165,7 @@ export default function AboutPage() {
                   community where students can explore, learn, and master
                   Microsoft technologies. Our mission is to bridge the gap
                   between academic learning and industry requirements.
-                </p>
+                </p> */}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -138,54 +173,130 @@ export default function AboutPage() {
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
                   <CardContent className="p-6">
                     <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <GraduationCap className="h-6 w-6 text-blue-600" />
+                    </div>
+                    {/* <h3 className="text-lg font-bold mb-2 text-blue-700">
+                      Educate
+                    </h3> */}
+                    <p className="text-muted-foreground text-sm">
+                      {/* To provide quality education on Microsoft technologies
+                      through workshops, seminars, and hands-on sessions. */}
+                  Equip students with practical skills in Microsoft technologies through workshops,certifications, and mentorship programs.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                  <CardContent className="p-6">
+                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Handshake className="h-6 w-6 text-blue-600" />
+                    </div>
+                    {/* <h3 className="text-lg font-bold mb-2 text-blue-700">
+                      Connect
+                    </h3> */}
+                    <p className="text-muted-foreground text-sm">
+                      {/* To foster networking among peers, industry professionals,
+                      and Microsoft experts. */}
+
+                   Bridge the gap between academia and industry by encouraging collaborations with professionals and organizations.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                  <CardContent className="p-6">
+                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Lightbulb className="h-6 w-6 text-blue-600" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2 text-blue-700">
-                      Educate
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      To provide quality education on Microsoft technologies
-                      through workshops, seminars, and hands-on sessions.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
-                  <CardContent className="p-6">
-                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Users className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-lg font-bold mb-2 text-blue-700">
-                      Connect
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      To foster networking among peers, industry professionals,
-                      and Microsoft experts.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
-                  <CardContent className="p-6">
-                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Award className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <h3 className="text-lg font-bold mb-2 text-blue-700">
+                    {/* <h3 className="text-lg font-bold mb-2 text-blue-700">
                       Innovate
-                    </h3>
+                    </h3> */}
                     <p className="text-muted-foreground text-sm">
-                      To encourage students to create innovative solutions using
-                      Microsoft technologies.
+                      {/* To encourage students to create innovative solutions using
+                      Microsoft technologies. */}
+
+                  Cultivate a culture of continuous learning, creativity, and leadership among members.
                     </p>
                   </CardContent>
                 </Card>
+                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                  <CardContent className="p-6">
+                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <UserCheck className="h-6 w-6 text-blue-600" />
+                    </div>
+                    {/* <h3 className="text-lg font-bold mb-2 text-blue-700">
+                      Connect
+                    </h3> */}
+                    <p className="text-muted-foreground text-sm">
+                      {/* To foster networking among peers, industry professionals,
+                      and Microsoft experts. */}
+
+                    Support members in achieving Microsoft certifications and becoming Microsoft Learn Student Ambassadors.
+                  
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-white/80 dark:bg-black/40 backdrop-blur-sm border-none depth-2 hover:depth-3 transition-all duration-300 overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                  <CardContent className="p-6">
+                    <div className="mb-4 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <CircuitBoard className="h-6 w-6 text-blue-600" />
+                    </div>
+                    {/* <h3 className="text-lg font-bold mb-2 text-blue-700">
+                      Connect
+                    </h3> */}
+                    <p className="text-muted-foreground text-sm">
+                      {/* To foster networking among peers, industry professionals,
+                      and Microsoft experts. */}
+
+                    Contribute to the university's vision by advocating for technological solutions that enhance national resources.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+
+
+                
+
               </div>
             </div>
           </div>
+          
         </div>
+        
       </section>
+
+{/* Starting Our Aim & Objective Section  */}
+<div className="bg-blue-50 py-12">
+  <div className="container mx-auto px-4 flex flex-col md:flex-row items-center md:items-start">
+    {/* Left Side (Optional Image or Empty Space) */}
+    <div className="md:w-1/2 hidden md:block">
+      {/* You can insert an <img> tag here if you have an image */}
+    </div>
+
+    {/* Right Side (Text Content) */}
+    <div className="md:w-1/2 w-full">
+      <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">
+        Our Aim & Objective
+      </Badge>
+
+      <p className="text-lg text-muted-foreground leading-relaxed">
+        The Club enhances skills in Microsoft technologies, supports certifications, mentors future MLSAs, and connects students with industry professionals.
+      </p>
+    </div>
+  </div>
+</div>
+
+               
+{/* Ending  Our Aim & Objective  */}
+
+  
+      
+
 
       {/* Our History Section */}
       <section className="w-full py-16 md:py-24 bg-background">
