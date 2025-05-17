@@ -66,22 +66,18 @@ export function MainNav() {
             Board
           </Link>
           <Link
-            href="/about"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
-          >
-            About Us
-          </Link>
-          <Link
             href="/blog"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
           >
             Blog
           </Link>
-          <Link href="/admin/login">
-            <Button variant="outline" size="sm" className="reveal motion-scale uwu-tea-card">
-              Admin
-            </Button>
+          <Link
+            href="/about us"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+          >
+            About Us
           </Link>
+         
         </nav>
 
         {/* Mobile Menu Button */}
@@ -103,15 +99,14 @@ export function MainNav() {
             <Link href="/board" className="text-lg font-medium hover:text-primary reveal" onClick={toggleMenu}>
               Board
             </Link>
-            <Link href="/about" className="text-lg font-medium hover:text-primary reveal" onClick={toggleMenu}>
-              About Us
-            </Link>
             <Link href="/blog" className="text-lg font-medium hover:text-primary reveal" onClick={toggleMenu}>
               Blog
             </Link>
-            <Link href="/admin/login" className="text-lg font-medium hover:text-primary reveal" onClick={toggleMenu}>
-              Admin
+            <Link href="/about" className="text-lg font-medium hover:text-primary reveal" onClick={toggleMenu}>
+              About Us
             </Link>
+            
+           
           </nav>
 
           {/* UWU mobile menu decoration */}

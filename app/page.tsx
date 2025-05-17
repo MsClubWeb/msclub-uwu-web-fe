@@ -12,6 +12,7 @@ import { StatsCounter } from "@/components/stats-counter"
 import { PartnersGrid } from "@/components/partners-grid"
 import { OrganizationSchema, WebPageSchema } from "@/components/structured-data"
 import type { Metadata } from "next"
+import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
   title: "MS Club UWU - Microsoft Student Club of Uva Wellassa University",
@@ -68,7 +69,7 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-
+            {/** upcoming events */}
             <EventsCarousel />
           </div>
         </section>
@@ -84,12 +85,12 @@ export default function Home() {
           <div className="container relative">
             <div className="text-center mb-16 max-w-3xl mx-auto">
               <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Why Join Us</Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                Empowering Students with Microsoft Technologies
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 italic">
+              Inspiring Students to Innovate and Create with Microsoft Technologies
               </h2>
               <p className="text-muted-foreground text-lg">
                 Our club offers unique opportunities to learn, connect, and grow with Microsoft technologies.
-              </p>
+              </p>0.
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -157,7 +158,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="w-full py-16 md:py-24 bg-background">
+        {/* <section className="w-full py-16 md:py-24 bg-background">
           <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
               <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Testimonials</Badge>
@@ -169,10 +170,10 @@ export default function Home() {
 
             <TestimonialSlider />
           </div>
-        </section>
+        </section> */}
 
         {/* Partners Section */}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
+        {/* <section className="w-full py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
           <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
               <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Our Partners</Badge>
@@ -184,7 +185,7 @@ export default function Home() {
 
             <PartnersGrid />
           </div>
-        </section>
+        </section> */}
 
         {/* Blog Preview Section */}
         <section className="w-full py-16 md:py-24 bg-background">
@@ -210,9 +211,10 @@ export default function Home() {
               <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=250&width=500"
+                    src="/AzureFun.jpg"
                     alt="Azure Workshop"
                     fill
+                    
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-2 right-2">
@@ -222,15 +224,13 @@ export default function Home() {
                 <CardContent className="p-6">
                   <div className="flex items-center text-sm text-muted-foreground mb-3">
                     <CalendarDays className="mr-2 h-4 w-4" />
-                    <span>June 1, 2023</span>
+                    <span>Mar 25, 2025</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                    Getting Started with Azure for Students
-                  </h3>
+                  Introduction to Azure Fundamentals: A Beginner’s Guide                  </h3>
                   <p className="text-muted-foreground mb-4 line-clamp-3">
-                    Learn how to use Azure's free student resources to build and deploy your first cloud application.
-                  </p>
-                  <Link href="/blog/1" className="text-blue-600 font-medium flex items-center hover:underline">
+                  Imagine you need to run a powerful application, but your personal computer isn’t strong enough. Instead of buying expensive hardware, you can use cloud computing—where a company like Microsoft provides the necessary resources over the internet. Cloud computing allows businesses and individuals to access computing power, storage, and applications on demand, without the need for physical infrastructure.                  </p>
+                  <Link href="https://medium.com/@rvihini/introduction-to-azure-fundamentals-a-beginners-guide-6cf86486d29f" className="text-blue-600 font-medium flex items-center hover:underline">
                     Read More
                     <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -241,7 +241,7 @@ export default function Home() {
               <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=250&width=500"
+                    src="/CICD.jpg"
                     alt="Microsoft Certifications"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -256,12 +256,10 @@ export default function Home() {
                     <span>May 25, 2023</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                    How to Prepare for Microsoft Certifications
-                  </h3>
+                  CI/CD Pipeline for Web App Deployment with Docker, Azure DevOps, and Azure Container Registry                  </h3>
                   <p className="text-muted-foreground mb-4 line-clamp-3">
-                    A comprehensive guide to preparing for and passing Microsoft certification exams as a student.
-                  </p>
-                  <Link href="/blog/2" className="text-blue-600 font-medium flex items-center hover:underline">
+                  Are you looking to deploy your Projects to Azure? With Azure DevOps, you can automate your app’s build and deployment processes with continuous integration (CI) and continuous deployment (CD). This guide will walk you through the steps to set up CI/CD pipelines for both the frontend and backend of your project. Let’s dive in!                  </p>
+                  <Link href="https://medium.com/@abhixsh__/ci-cd-pipeline-for-web-app-deployment-with-docker-azure-devops-and-azure-container-registry-fd385042b755" className="text-blue-600 font-medium flex items-center hover:underline">
                     Read More
                     <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -272,7 +270,7 @@ export default function Home() {
               <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=250&width=500"
+                    src="/Azurevr.jpg"
                     alt="Power Apps"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -287,11 +285,9 @@ export default function Home() {
                     <span>May 18, 2023</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                    Building Your First Power App
-                  </h3>
+                  Creating Your First Azure Virtual Machine: A Beginner’s Guide                  </h3>
                   <p className="text-muted-foreground mb-4 line-clamp-3">
-                    Step-by-step tutorial on creating a simple but powerful app using Microsoft Power Apps.
-                  </p>
+                  In this article, I’ll walk you through creating an Azure Virtual Machine (VM) from scratch. Not only will you learn how to set up your VM, also, you’ll discover how to host a simple static web frontend such as a React web app from your GitHub repository on your newly created cloud virtual machine.                  </p>
                   <Link href="/blog/3" className="text-blue-600 font-medium flex items-center hover:underline">
                     Read More
                     <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -301,7 +297,108 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="w-full py-16 md:py-24 bg-background">
+          <div className="container">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Contact Us</Badge>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Let's Connect</h2>
+              <p className="text-muted-foreground text-lg">
+                Have questions or want to learn more about our club? Reach out to us and we'll get back to you soon.
+              </p>
+            </div>
 
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold">Get In Touch</h3>
+                  <p className="text-muted-foreground">
+                    We'd love to hear from you! Whether you have questions about membership, upcoming events, or just
+                    want to say hello, feel free to reach out.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5 text-blue-600"
+                      >
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium mb-1">Email</h4>
+                      <p className="text-muted-foreground">info@msclub.uwu.ac.lk</p>
+                      <p className="text-muted-foreground">events@msclub.uwu.ac.lk</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5 text-blue-600"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium mb-1">Phone</h4>
+                      <p className="text-muted-foreground">+94 55 123456</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5 text-blue-600"
+                      >
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-medium mb-1">Location</h4>
+                      <p className="text-muted-foreground">Uva Wellassa University</p>
+                      <p className="text-muted-foreground">Badulla, Sri Lanka</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Call to Action with Acrylic effect */}
         <section className="w-full py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#0078D4] to-[#005A9E]"></div>
@@ -328,7 +425,7 @@ export default function Home() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/20 depth-1 motion-scale"
+                  className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale"
                 >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
@@ -340,4 +437,3 @@ export default function Home() {
     </>
   )
 }
-
