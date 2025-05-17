@@ -10,6 +10,7 @@ import { WebPageSchema } from "@/components/structured-data"
 import { Input } from "@/components/ui/input"
 import type { Metadata } from "next"
 
+
 export const metadata: Metadata = {
   title: "Events | MS Club UWU",
   description: "Join our workshops, seminars, hackathons, and more to enhance your skills in Microsoft technologies.",
@@ -29,15 +30,45 @@ const upcomingEvents = [
   {
     id: 1,
     title: "Azure Cloud Workshop",
-    description: "Learn the fundamentals of Azure and deploy your first cloud application.",
-    date: "June 10, 2023",
-    time: "2:00 PM - 5:00 PM",
-    location: "Tech Building, Room 203",
-    image: "/placeholder.svg?height=250&width=500",
+    description: "Dive into cloud-native development with Microsoft Azure. Learn best practices for building scalable, resilient applications using Azure Kubernetes Service and Azure Functions.",
+    date: "August 15, 2025",
+    time: "7:00 PM - 9:00 PM",
+    location: "MS Teams (Online)",
+    image: "/images/Azure Cloud Workshop.png",
     category: "Cloud",
   },
   {
     id: 2,
+    title: "InnovateX - YouTube Series",
+    description: "An engaging YouTube series session for students to explore building AI agents using Azure AI Foundry, as part of the InnovateX series. Learn how to leverage Microsoft technologies to develop intelligent solutions.",
+    date: "June 20, 2025",
+    time: "7:00 PM - 9:00 PM",
+    location: "MS Teams (Online)",
+    image: "/images/Build AI Agent.png",
+    category: "Productivity",
+  },
+  {
+    id: 3,
+    title: "InnovateX – YouTube Series",
+    description: "Discover how AI and Copilot tools are transforming productivity. This session will showcase real-world use cases and demos on integrating AI into your daily workflow.",
+    date: "June 18, 2025",
+    time: "8:00 PM - 9:00 PM",
+    location: "MS Teams (Online)",
+    image: "/images/AI & Copilot Tools.png",
+    category: "Productivity",
+  },
+  {
+    id: 4,
+    title: "HackMS’ 2025",
+    description: "A hands-on hackathon focused on building real-world solutions using Microsoft technologies. Network, code, and compete with the best!",
+    date: "July 5-6, 2025",
+    time: "All Day",
+    location: "Uva Wellassa University",
+    image: "/images/HackMs.png",
+    category: "Hackathon",
+  },
+  {
+    id: 5,
     title: "Power BI Masterclass",
     description: "Create stunning visualizations and analytics dashboards with Power BI.",
     date: "June 15, 2023",
@@ -47,7 +78,7 @@ const upcomingEvents = [
     category: "Data",
   },
   {
-    id: 3,
+    id: 6,
     title: "Summer Hackathon",
     description: "48-hour hackathon to build solutions using Microsoft technologies.",
     date: "June 24-25, 2023",
@@ -57,7 +88,7 @@ const upcomingEvents = [
     category: "Hackathon",
   },
   {
-    id: 4,
+    id: 7,
     title: "Microsoft 365 for Students",
     description: "Get the most out of Microsoft 365 apps for your academic success.",
     date: "July 5, 2023",
@@ -67,7 +98,7 @@ const upcomingEvents = [
     category: "Productivity",
   },
   {
-    id: 5,
+    id: 8,
     title: "Microsoft Tech Talks – YouTube Series",
     description: "Engaging YouTube sessions for students, covering the latest in Microsoft technologies including Azure, Power Platform, and more.",
     date: "June 20, 2025",
@@ -76,21 +107,32 @@ const upcomingEvents = [
     image: "/placeholder.svg?height=250&width=500",
     category: "Productivity",
   },
-  {
-    id: 6,
-    title: "HackMS’ 2025",
-    description: "A hands-on hackathon focused on building real-world solutions using Microsoft technologies. Network, code, and compete with the best!",
-    date: "July 5-6, 2025",
-    time: "All Day",
-    location: "Uva Wellassa University",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Hackathon",
-  },
+  
 ]
 
 const pastEvents = [
   {
     id: 101,
+    title: "Annual General Meeting (AGM)",
+    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
+    date: "January 8, 2025",
+    time: "6:00 PM onwards",
+    location: "TLT",
+    image: "/images/Annual General Meeting (AGM).jpeg",
+    category: "Productivity",
+  },
+  {
+    id: 102,
+    title: "Azure Session Series – Unlocking the Power of the Cloud!",
+    description: "A full-day session held at the University of Ruhuna, focused on Azure DevOps, Azure AI, and Azure 101. The event featured practical insights and demonstrations exploring the future of cloud technology.",
+    date: "March 29, 2025",
+    time: "All Day",
+    location: "University of Ruhuna, Lab 11",
+    image: "/images/Azure Session Series .jpeg",
+    category: "Competition",
+  },
+  {
+    id: 103,
     title: "Introduction to GitHub",
     description: "Learn version control and collaboration using GitHub.",
     date: "May 20, 2023",
@@ -100,7 +142,7 @@ const pastEvents = [
     category: "Development",
   },
   {
-    id: 102,
+    id: 104,
     title: "VS Code Deep Dive",
     description: "Master the most popular code editor with tips and extensions.",
     date: "May 12, 2023",
@@ -110,7 +152,7 @@ const pastEvents = [
     category: "Development",
   },
   {
-    id: 103,
+    id: 105,
     title: "Microsoft Imagine Cup Info Session",
     description: "Learn about the global student technology competition and how to participate.",
     date: "May 5, 2023",
@@ -119,26 +161,7 @@ const pastEvents = [
     image: "/placeholder.svg?height=250&width=500",
     category: "Competition",
   },
-  {
-    id: 105,
-    title: "Annual General Meeting (AGM)",
-    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
-    date: "January 8, 2025",
-    time: "6:00 PM onwards",
-    location: "TLT",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Productivity",
-  },
-  {
-    id: 106,
-    title: "Azure Session Series – Unlocking the Power of the Cloud!",
-    description: "A full-day session held at the University of Ruhuna, focused on Azure DevOps, Azure AI, and Azure 101. The event featured practical insights and demonstrations exploring the future of cloud technology.",
-    date: "March 29, 2025",
-    time: "All Day",
-    location: "University of Ruhuna, Lab 11",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Competition",
-  },
+  
 ]
 
 export default function EventsPage() {
