@@ -66,47 +66,7 @@ const upcomingEvents = [
     location: "Uva Wellassa University",
     image: "/images/HackMs.png",
     category: "Hackathon",
-  },
-  {
-    id: 5,
-    title: "Power BI Masterclass",
-    description: "Create stunning visualizations and analytics dashboards with Power BI.",
-    date: "June 15, 2023",
-    time: "3:30 PM - 6:30 PM",
-    location: "Business School, Room 105",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Data",
-  },
-  {
-    id: 6,
-    title: "Summer Hackathon",
-    description: "48-hour hackathon to build solutions using Microsoft technologies.",
-    date: "June 24-25, 2023",
-    time: "All Day",
-    location: "Main Hall",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Hackathon",
-  },
-  {
-    id: 7,
-    title: "Microsoft 365 for Students",
-    description: "Get the most out of Microsoft 365 apps for your academic success.",
-    date: "July 5, 2023",
-    time: "1:00 PM - 3:00 PM",
-    location: "Library, Media Room",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Productivity",
-  },
-  {
-    id: 8,
-    title: "Microsoft Tech Talks – YouTube Series",
-    description: "Engaging YouTube sessions for students, covering the latest in Microsoft technologies including Azure, Power Platform, and more.",
-    date: "June 20, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "MS Teams (Online)",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Productivity",
-  },
+  }
   
 ]
 
@@ -130,37 +90,7 @@ const pastEvents = [
     location: "University of Ruhuna, Lab 11",
     image: "/images/Azure Session Series .jpeg",
     category: "Competition",
-  },
-  {
-    id: 103,
-    title: "Introduction to GitHub",
-    description: "Learn version control and collaboration using GitHub.",
-    date: "May 20, 2023",
-    time: "2:00 PM - 4:00 PM",
-    location: "Tech Building, Room 101",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Development",
-  },
-  {
-    id: 104,
-    title: "VS Code Deep Dive",
-    description: "Master the most popular code editor with tips and extensions.",
-    date: "May 12, 2023",
-    time: "3:00 PM - 5:00 PM",
-    location: "Engineering Building, Lab 3",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Development",
-  },
-  {
-    id: 105,
-    title: "Microsoft Imagine Cup Info Session",
-    description: "Learn about the global student technology competition and how to participate.",
-    date: "May 5, 2023",
-    time: "4:00 PM - 5:30 PM",
-    location: "Student Center, Meeting Room A",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Competition",
-  },
+  }
   
 ]
 
