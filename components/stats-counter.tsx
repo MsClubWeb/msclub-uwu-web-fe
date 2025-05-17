@@ -9,7 +9,7 @@ const stats = [
   {
     id: 1,
     label: "Active Members",
-    value: 500,
+    value: 250,
     icon: Users,
     suffix: "+",
     color: "blue",
@@ -17,15 +17,15 @@ const stats = [
   {
     id: 2,
     label: "Events Per Year",
-    value: 24,
+    value: 10,
     icon: Calendar,
     suffix: "",
     color: "indigo",
   },
   {
     id: 3,
-    label: "Certifications Earned",
-    value: 150,
+    label: "Certifications Issued",
+    value: 100,
     icon: Award,
     suffix: "+",
     color: "purple",
@@ -33,7 +33,7 @@ const stats = [
   {
     id: 4,
     label: "Workshop Hours",
-    value: 300,
+    value: 100,
     icon: BookOpen,
     suffix: "+",
     color: "cyan",
