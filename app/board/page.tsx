@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import { Twitter, Linkedin, Github } from "lucide-react"
+import { Linkedin, Github, Calendar } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { WebPageSchema } from "@/components/structured-data"
@@ -23,98 +23,288 @@ export const metadata: Metadata = {
   },
 }
 
-// Simulated board members data
+// Simulated board members data with added year information
 const boardMembers = [
   {
     id: 1,
-    name: "Alexandra Chen",
-    role: "President",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Mr.Chirantha Jananath Kithulwaththa",
+    role: "Senior Advisor/ Senior Treasure ",
+    year: "2023-2024",
+    image: "/images/ExecutiveMembers/SeniorAdviser.webp?height=300&width=300",
     bio: "Computer Science senior with a passion for cloud technologies and AI. Microsoft Student Partner since 2020.",
     social: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
       github: "https://github.com",
     },
   },
   {
+    
     id: 2,
-    name: "Marcus Johnson",
-    role: "Vice President",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Abishek Haththakage",
+    role: "President",
+    year: "2023-2024",
+    image: "/images/ExecutiveMembers/Abishek Haththakage.webp?height=300&width=300",
     bio: "Information Systems junior focused on business intelligence and Power Platform. Certified in Microsoft Power BI.",
     social: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
       github: "https://github.com",
     },
   },
   {
     id: 3,
-    name: "Sophia Rodriguez",
-    role: "Technical Lead",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Chamini Palliyaguru",
+    year: "2023-2024",
+    role: "Vice President",
+    
+    image: "/images/ExecutiveMembers/Chamini Palliyaguru.webp?height=300&width=300",
     bio: "Software Engineering graduate student specializing in Azure cloud infrastructure and DevOps practices.",
     social: {
       linkedin: "https://linkedin.com",
       github: "https://github.com",
     },
   },
+
   {
     id: 4,
-    name: "Jamal Williams",
-    role: "Events Coordinator",
-    image: "/placeholder.svg?height=300&width=300",
+    name: "Vihini Ranasinghe",
+    role: "Secretary",
+    year: "2023-2024",
+    image: "/images/ExecutiveMembers/Vihini Ranasinghe.webp?height=300&width=300",
     bio: "Marketing and Computer Science double major with experience organizing tech events and hackathons.",
     social: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      github: "https://github.com",
     },
   },
+  
+]
+
+// Executive Committee data with year information
+const ExecutiveCommittee = [
   {
-    id: 5,
-    name: "Aisha Patel",
-    role: "Communications Director",
-    image: "/placeholder.svg?height=300&width=300",
+    id: 1,
+    name: "Hashanee Weeratunga",
+    role: "Assistant Secretary",
+    image: "/images/ExecutiveMembers/Hashanee Weerathunga.webp?height=300&width=300",
     bio: "Communications major with a minor in Web Development. Manages all club social media and outreach.",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-    },
-  },
-  {
-    id: 6,
-    name: "David Kim",
-    role: "Treasurer",
-    image: "/placeholder.svg?height=300&width=300",
-    bio: "Finance major with a passion for technology. Handles budget planning and sponsorship management.",
-    social: {
-      linkedin: "https://linkedin.com",
-    },
-  },
-  {
-    id: 7,
-    name: "Olivia Martinez",
-    role: "Design Lead",
-    image: "/placeholder.svg?height=300&width=300",
-    bio: "Graphic Design student who creates all visual content for events, website, and social media.",
     social: {
       linkedin: "https://linkedin.com",
       github: "https://github.com",
     },
   },
   {
-    id: 8,
-    name: "Tyler Washington",
-    role: "Membership Coordinator",
-    image: "/placeholder.svg?height=300&width=300",
+    id: 2,
+    name: "Theekshana Sachintha",
+    role: "Junior Treasurer",
+    image: "/images/ExecutiveMembers/Theekshana Sachintha.webp?height=300&width=300",
+    bio: "Finance major with a passion for technology. Handles budget planning and sponsorship management.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 3,
+    name: "Dharani Samudrika",
+    role: "Web Master",
+    image: "/images/ExecutiveMembers/Dharani Samudrika.webp?height=300&width=300",
+    bio: "Graphic Design student who creates all visual content for events, website, and social media.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 4,
+    name: "Gehan Liyanage",
+    role: "Media Coordinator",
+    image: "/images/ExecutiveMembers/Gehan Liyanage.webp?height=300&width=300",
     bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
     social: {
       linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      github: "https://github.com",
     },
   },
-]
+
+  {
+    id: 5,
+    name: "Theekshana Nirmal",
+    role: "Event Organizer",
+    image: "/images/ExecutiveMembers/Theekshana Nirmal.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 6,
+    name: "Ahinsa Arunodi ",
+    role: "Editor",
+    image: "/images/ExecutiveMembers/Ahinsa Arunodi.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 7,
+    name: "Pubudu Harshana",
+    role: "Editor",
+    image: "/images/ExecutiveMembers/Pubudu Harshana.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  // Add more members as needed
+];
+
+// Committee Members data with year information
+const committeeMembers = [
+  {
+    id: 1,
+    name: "Lahiru Kumara ",
+    image: "/images/CommiteeMembers/Lahiru Kumara.webp?height=300&width=300",
+    bio: "Communications major with a minor in Web Development. Manages all club social media and outreach.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 2,
+    name: "Harshani Madhushani",
+    image: "/images/CommiteeMembers/Harshani Madushani.webp?height=300&width=300",
+    bio: "Finance major with a passion for technology. Handles budget planning and sponsorship management.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 3,
+    name: "Chathursha Samarathunga",
+    image: "/images/CommiteeMembers/Chathursha Samarathunga.webp?height=300&width=300",
+    bio: "Graphic Design student who creates all visual content for events, website, and social media.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 4,
+    name: "Sammani Dias",
+    image: "/images/CommiteeMembers/Sammani Dias.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 5,
+    name: "Kasun Janith",
+    image: "/images/CommiteeMembers/Kasun Janith.webp?height=300&width=300",
+    bio: "Communications major with a minor in Web Development. Manages all club social media and outreach.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 6,
+    name: "Chanuka Isuru",
+    image: "/images/CommiteeMembers/Chanuka Isuru.webp?height=300&width=300",
+    bio: "Finance major with a passion for technology. Handles budget planning and sponsorship management.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 7,
+    name: "Tharindu Dilshan",
+    image: "/images/CommiteeMembers/Tharindu Dilshan.webp?height=300&width=300",
+    bio: "Graphic Design student who creates all visual content for events, website, and social media.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 8,
+    name: "Subhani Herath",
+    image: "/images/CommiteeMembers/Subhani Herath.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 9,
+    name: "Mohamed Nazik",
+    image: "/images/CommiteeMembers/Mohamed Nazik.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 10,
+    name: "Chamandi Sanjula",
+    image: "/images/CommiteeMembers/Chamandi Sanjula.webp?height=300&width=300",
+    bio: "Communications major with a minor in Web Development. Manages all club social media and outreach.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 11,
+    name: "Sandalu Rubhasinghe",
+    image: "/images/CommiteeMembers/Sandula Rubhasinghe.webp?height=300&width=300",
+    bio: "Finance major with a passion for technology. Handles budget planning and sponsorship management.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  {
+    id: 12,
+    name: "Sameesha Pasanya ",
+    image: "/images/CommiteeMembers/Sameesha Pasanya.webp?height=300&width=300",
+    bio: "Graphic Design student who creates all visual content for events, website, and social media.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+
+  {
+    id: 13,
+    name: "Tharindu Dilshan",
+    image: "/images/CommiteeMembers/Tharindu Dilshan.webp?height=300&width=300",
+    bio: "Psychology major with a CS minor. Focuses on growing the club's membership and community engagement.",
+    social: {
+      linkedin: "https://linkedin.com",
+      github: "https://github.com",
+    },
+  },
+  // Add more members as needed
+];
 
 export default function BoardPage() {
   return (
@@ -168,12 +358,12 @@ export default function BoardPage() {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div>
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">Leadership</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter">Executive Board</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Top Board Members</h2>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {boardMembers.slice(0, 3).map((member, index) => (
+              {boardMembers.slice(0, 4).map((member, index) => (
                 <Card
                   key={member.id}
                   className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
@@ -221,6 +411,11 @@ export default function BoardPage() {
                       <div>
                         <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
                         <p className="text-blue-600 font-medium">{member.role}</p>
+                        {/* Year with Calendar Icon - ADDED */}
+                        <div className="flex items-center text-muted-foreground text-sm mt-1">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          <span>{member.year}</span>
+                        </div>
                       </div>
                       <p className="text-muted-foreground">{member.bio}</p>
                       <div className="flex space-x-4">
@@ -231,15 +426,6 @@ export default function BoardPage() {
                           >
                             <Linkedin className="h-5 w-5" />
                             <span className="sr-only">LinkedIn</span>
-                          </Link>
-                        )}
-                        {member.social.twitter && (
-                          <Link
-                            href={member.social.twitter}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Twitter className="h-5 w-5" />
-                            <span className="sr-only">Twitter</span>
                           </Link>
                         )}
                         {member.social.github && (
@@ -259,17 +445,17 @@ export default function BoardPage() {
             </div>
           </div>
 
-          {/* Board Members */}
+          {/* Executive Committee */}
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div>
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">Team</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter">Board Members</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Executive Committee</h2>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {boardMembers.slice(3).map((member, index) => (
+              {ExecutiveCommittee.slice(0, 7).map((member, index) => (
                 <Card
                   key={member.id}
                   className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
@@ -292,6 +478,7 @@ export default function BoardPage() {
                       <div>
                         <h3 className="font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
                         <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+                        {/* Year with Calendar Icon - ADDED */}
                       </div>
                       <p className="text-sm text-muted-foreground">{member.bio}</p>
                       <div className="flex space-x-4">
@@ -304,13 +491,71 @@ export default function BoardPage() {
                             <span className="sr-only">LinkedIn</span>
                           </Link>
                         )}
-                        {member.social.twitter && (
+                        {member.social.github && (
                           <Link
-                            href={member.social.twitter}
+                            href={member.social.github}
                             className="text-muted-foreground hover:text-blue-600 transition-colors"
                           >
-                            <Twitter className="h-4 w-4" />
-                            <span className="sr-only">Twitter</span>
+                            <Github className="h-4 w-4" />
+                            <span className="sr-only">GitHub</span>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Committee Members */}
+          <div className="space-y-8">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+              <div>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">Team</Badge>
+                <h2 className="text-3xl font-bold tracking-tighter">Committee Members</h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {committeeMembers.slice(0, 13).map((member, index) => (
+                <Card
+                  key={member.id}
+                  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="h-24 w-24 rounded-full overflow-hidden depth-1 relative">
+                        <Image
+                          src={member.image || "/placeholder.svg"}
+                          alt={member.name}
+                          width={96}
+                          height={96}
+                          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
+                        />
+
+                        {/* Subtle decorative border inspired by Sri Lankan patterns */}
+                        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
+                      </div>
+                      <div>
+                        <h3 className="font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
+
+                        {/* Year with Calendar Icon - ADDED */}
+                        {/* <div className="flex items-center justify-center text-muted-foreground text-sm mt-1">
+                          <Calendar className="h-3 w-3 mr-1" />
+                          <span>{member.year}</span>
+                        </div> */}
+                      </div>
+                      <p className="text-sm text-muted-foreground">{member.bio}</p>
+                      <div className="flex space-x-4">
+                        {member.social.linkedin && (
+                          <Link
+                            href={member.social.linkedin}
+                            className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          >
+                            <Linkedin className="h-4 w-4" />
+                            <span className="sr-only">LinkedIn</span>
                           </Link>
                         )}
                         {member.social.github && (
@@ -359,7 +604,7 @@ export default function BoardPage() {
               open at the beginning of each academic year.
             </p>
             <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale">
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">Apply For Board</Link>
             </Button>
           </div>
         </div>
@@ -367,4 +612,3 @@ export default function BoardPage() {
     </>
   )
 }
-
