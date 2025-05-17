@@ -60,7 +60,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative w-full py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0  bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                   description:
                     "The Microsoft Club of Uva Wellassa University was founded in 2024 by a group of passionate students who recognized the potential of Microsoft technologies to shape the future of the tech industry.",
                   // image: "/placeholder.svg?height=300&width=500&text=2015",
-                  image: "/about_us_page_images/Foundation.jpg", //Added the image in Founding Section
+                  image: "/Foundation.jpg", //Added the image in Founding Section
                   position: "left",
                 },
                 {
@@ -336,7 +336,7 @@ export default function AboutPage() {
                   description:
                     "The Annual General Meeting. held at the beginning of 2025, marked the official launch of the Microsoft Club of Uva Wellassa University. It celebrated the beginning of the club's journey and introduced the initial executive committee, setting the stage for impactful activities ahead.",
                   // image: "/placeholder.svg?height=300&width=500&text=2017",
-                  image: "/about_us_page_images/AGM.png", //Added the image in AGM Section
+                  image: "/AGM.jpg", //Added the image in AGM Section
                   position: "right",
                 },
                 {
@@ -345,7 +345,7 @@ export default function AboutPage() {
                   description:
                     "In March 2025, a collaborative event was held between the MS Club of Uva Wellassa University and the ICT Students' Circle of the University of Ruhuna. The event focused on knowledge sharing, networking, and professional development through interactive sessions and activities that promoted collaboration and enhanced the learning experience  for students from both universities.",
                   // image: "/placeholder.svg?height=300&width=500&text=2019",
-                  image: "/about_us_page_images/Ruhunu_Session.jpg", //Added the image in Ruhuna Session Section
+                  image: "/Ruhunu Session.jpg", //Added the image in Ruhuna Session Section
                   position: "left",
                 },
                 // {
