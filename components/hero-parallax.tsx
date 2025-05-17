@@ -34,7 +34,7 @@ export function HeroParallax() {
       ></div>
 
       <div
-        className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20 mix-blend-overlay"
+        className="absolute inset-0 bg-[url('/bod.jpg')] bg-cover bg-center opacity-20 mix-blend-overlay"
         style={{ transform: `translateY(${calculateParallax(0.1)}px) scale(${1 + scrollY * 0.0005})` }}
       ></div>
 
@@ -73,13 +73,12 @@ export function HeroParallax() {
               Microsoft Student Club
             </Badge>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-tight">
-              Empowering Students with <span className="text-blue-200">Microsoft</span> Technologies
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter leading-tight italic">
+            Inspiring Students to Innovate and Create with <span className="text-blue-200">Microsoft</span> Technologies
             </h1>
 
-            <p className="text-xl text-blue-100 max-w-lg">
-              Join UWU's premier tech community to learn, connect, and build your future with Microsoft's cutting-edge
-              tools and technologies.
+            <p className="text-xl text-blue-100 max-w-lg italic">
+            Join UWU’s leading tech community to explore new ideas, build innovative projects, and shape the future using Microsoft’s powerful tools and platforms.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -94,9 +93,9 @@ export function HeroParallax() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/20 depth-1 motion-scale"
+                className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale"
               >
-                <Link href="/about">About Us</Link>
+                <Link href="/about">Register Now</Link>
               </Button>
             </div>
           </div>
@@ -106,7 +105,7 @@ export function HeroParallax() {
               {/* Main image */}
               <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-lg overflow-hidden depth-3 border border-white/20">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="https://msclub-uwu.netlify.app/logo.png"// secons image 
                   alt="MS Club Event"
                   fill
                   className="object-cover"
