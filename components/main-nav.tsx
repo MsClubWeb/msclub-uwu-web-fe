@@ -72,7 +72,7 @@ export function MainNav() {
             Blog
           </Link>
           <Link
-            href="/about us"
+            href="/about"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
           >
             About Us
