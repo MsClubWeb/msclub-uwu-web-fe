@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Search, Calendar, User, Clock, ChevronRight, BookOpen, ArrowRight } from "lucide-react"
+import { Search, Calendar, User, Clock, ChevronRight, BookOpen,Brain,Dot,Blocks,ActivitySquare,Github, ArrowRight } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { WebPageSchema } from "@/components/structured-data"
@@ -29,77 +29,84 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     id: 1,
-    title: "Getting Started with Azure for Students",
-    excerpt: "Learn how to use Azure's free student resources to build and deploy your first cloud application.",
+    title: "Introduction to Azure Fundamentals: A Beginner’s Guide",
+    excerpt: "Imagine you need to run a powerful application, but your personal computer isn’t strong enough. Instead of buying expensive hardware, you can use cloud computing—where a company like Microsoft provides the necessary resources over the internet. Cloud computing allows businesses and individuals to access computing power, storage, and applications on demand, without the need for physical infrastructure.",
     date: "June 1, 2023",
-    author: "Alexandra Chen",
+    author: "Vihini Ranasingha",
     readTime: "5 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article1.jpg?height=500&width=250",
     category: "Cloud",
+    mediumLink: "https://medium.com/@rvihini/introduction-to-azure-fundamentals-a-beginners-guide-6cf86486d29f",
   },
   {
     id: 2,
-    title: "How to Prepare for Microsoft Certifications",
-    excerpt: "A comprehensive guide to preparing for and passing Microsoft certification exams as a student.",
+    title: "CI/CD Pipeline for Web App Deployment with Docker, Azure DevOps, and Azure Container Registry",
+    excerpt: "Are you looking to deploy your Projects to Azure? With Azure DevOps, you can automate your app’s build and deployment processes with continuous integration (CI) and continuous deployment (CD). This guide will walk you through the steps to set up CI/CD pipelines for both the frontend and backend of your project. Let’s dive in!",
     date: "May 25, 2023",
-    author: "Marcus Johnson",
+    author: "Abishek Haththakage",
     readTime: "8 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article2.jpg?height=500&width=250",
     category: "Career",
+    mediumLink: "https://medium.com/@abhixsh__/ci-cd-pipeline-for-web-app-deployment-with-docker-azure-devops-and-azure-container-registry-fd385042b755",
   },
   {
     id: 3,
-    title: "Building Your First Power App",
-    excerpt: "Step-by-step tutorial on creating a simple but powerful app using Microsoft Power Apps.",
+    title: "Creating Your First Azure Virtual Machine: A Beginner’s Guide",
+    excerpt: "In this article, I’ll walk you through creating an Azure Virtual Machine (VM) from scratch. Not only will you learn how to set up your VM, also, you’ll discover how to host a simple static web frontend such as a React web app from your GitHub repository on your newly created cloud virtual machine.",
     date: "May 18, 2023",
-    author: "Sophia Rodriguez",
+    author: "Theekshana Nirmal",
     readTime: "10 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article3.jpg?height=500&width=250",
     category: "Development",
+    mediumLink: "https://theek.medium.com/creating-your-first-azure-virtual-machine-a-beginners-guide-3777540baeaa",
   },
   {
     id: 4,
-    title: "Microsoft Graph API for Beginners",
-    excerpt: "An introduction to Microsoft Graph API and how to use it in your applications.",
+    title: "A Beginner’s Guide: Deploying Your First Static Web Site using Azure App Services",
+    excerpt: "Are you want to share your newly built static website (like a simple frontend) with the world? Azure App Service simplifies the deployment process, making it accessible even for those new to cloud platforms. In this article, I’ll guide you through the step-by-step process of deploying your site from a GitHub repository to Azure Static Web Apps. Let’s get started!",
     date: "May 10, 2023",
-    author: "David Kim",
+    author: "Theekshana Nirmal",
     readTime: "7 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article4.jpg?height=500&width=250",
     category: "Development",
+    mediumLink: "https://theek.medium.com/a-beginners-guide-deploying-your-first-static-web-site-using-azure-app-services-400b303fd511",
   },
   {
     id: 5,
-    title: "Highlights from Our Spring Hackathon",
-    excerpt: "A recap of the amazing projects and innovations from our most recent hackathon event.",
+    title: "How to Create a Bastion Host for Secure Access to Private AWS Servers",
+    excerpt: "A Bastion Host (also known as a Jump Host) is a special server used to securely access other computers or servers in a private network. It acts as a gateway to your internal resources, allowing only trusted users to enter the network.",
     date: "May 5, 2023",
-    author: "Jamal Williams",
+    author: "Abishek Haththakage",
     readTime: "4 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article5.jpg?height=500&width=250",
     category: "Events",
+    mediumLink: "https://medium.com/@abhixsh__/how-to-create-a-bastion-host-for-secure-access-to-private-aws-servers-b2e689c97f99",
   },
   {
     id: 6,
-    title: "Using GitHub Copilot for Student Projects",
-    excerpt: "How AI can help students code more efficiently and learn programming concepts.",
+    title: "Provision an Azure Virtual Machine Using Terraform with Remote State and GitHub Actions",
+    excerpt: "In this guide, I’ll show you how I used Terraform to create a Virtual Machine (VM) in Microsoft Azure, store the state remotely in Azure Storage, and automate the whole process using GitHub Actions.",
     date: "April 28, 2023",
-    author: "Olivia Martinez",
+    author: "Abishek Haththakage",
     readTime: "6 min read",
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/articles/article6.jpg?height=100&width=100",
     category: "AI",
+    mediumLink: "https://medium.com/@abhixsh__/provision-an-azure-virtual-machine-using-terraform-with-remote-state-and-github-actions-41d80e042fa3",
   },
 ]
 
 // Featured post
 const featuredPost = {
   id: 7,
-  title: "The Future of Microsoft Technologies in Education",
-  excerpt:
-    "Exploring how Microsoft's latest innovations are transforming the educational landscape and preparing students for the workforce of tomorrow.",
+  title: "A Beginner’s Guide: Deploying Your First Static Web Site using Azure App Services",
+  excerpt: "Exploring how Microsoft's latest innovations are transforming the educational landscape and preparing students for the workforce of tomorrow.",
   date: "June 5, 2023",
-  author: "Alexandra Chen",
+  author: "Theekshana Nirmal",
   readTime: "12 min read",
-  image: "/placeholder.svg?height=600&width=1200",
+  image: "/articles/art7.png?height=1200&width=600",
   category: "Education",
+  mediumLink: "https://theek.medium.com/a-beginners-guide-deploying-your-first-static-web-site-using-azure-app-services-400b303fd511",
+
 }
 
 export default function BlogPage() {
@@ -152,12 +159,14 @@ export default function BlogPage() {
                     </SelectTrigger>
                     <SelectContent className="acrylic depth-2">
                       <SelectItem value="all">All Categories</SelectItem>
-                      <SelectItem value="cloud">Cloud</SelectItem>
+                      <SelectItem value="cloud">Cloud Computing</SelectItem>
                       <SelectItem value="development">Development</SelectItem>
-                      <SelectItem value="career">Career</SelectItem>
-                      <SelectItem value="ai">AI</SelectItem>
-                      <SelectItem value="events">Events</SelectItem>
-                      <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="career">Career Growth</SelectItem>
+                      <SelectItem value="ai">Azure AI & ML</SelectItem>
+                      <SelectItem value="net">.NET</SelectItem>
+                      <SelectItem value="fabric">Microsoft Fabric</SelectItem>
+                      <SelectItem value="power">Power Platform</SelectItem>
+                      <SelectItem value="github">GitHub</SelectItem>
                     </SelectContent>
                   </Select>
                   <Button className="bg-blue-600 hover:bg-blue-700 reveal motion-scale h-11">Filter</Button>
@@ -172,12 +181,17 @@ export default function BlogPage() {
         <div className="space-y-16">
           {/* Featured Post */}
           <div className="relative rounded-xl overflow-hidden depth-3 motion-fade animate-in fade-in-0 slide-in-from-bottom-5">
-            <div className="relative h-[500px] w-full">
+            <Link
+              href={featuredPost.mediumLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative h-[500px] w-full group"
+            >
               <Image
                 src={featuredPost.image || "/placeholder.svg"}
                 alt={featuredPost.title}
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
                 priority
                 sizes="100vw"
               />
@@ -200,15 +214,13 @@ export default function BlogPage() {
                     <span>{featuredPost.readTime}</span>
                   </div>
                 </div>
-                <Button className="bg-blue-600 hover:bg-blue-700 reveal motion-scale group" asChild>
-                  <Link href={`/blog/${featuredPost.id}`} className="flex items-center">
-                    Read Article
-                    <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
+                <div className="inline-flex items-center text-blue-100 hover:text-white font-medium transition">
+                  Read Article <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
+
 
           {/* Latest Articles */}
           <div>
@@ -226,59 +238,76 @@ export default function BlogPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post, index) => (
-                <Card
-                  key={post.id}
-                  className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
-                    <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute top-3 right-3 z-20">
-                      <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">{post.category}</Badge>
-                    </div>
+              
+            {blogPosts.map((post, index) => (
+            <Card
+              key={post.id}
+              className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <Link 
+                href={post.mediumLink || `/blog/${post.id}`} 
+                target={post.mediumLink ? "_blank" : "_self"}
+                className="block"
+              >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
+                  <Image
+                    src={post.image || "/placeholder.svg"}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute top-3 right-3 z-20">
+                    <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">{post.category}</Badge>
                   </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                      <div className="flex items-center">
-                        <Calendar className="mr-1 h-4 w-4" />
-                        <span>{post.date}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="mr-1 h-4 w-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
-                      <div className="flex items-center text-sm">
-                        <User className="mr-2 h-4 w-4 text-muted-foreground" />
-                        <span>{post.author}</span>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        className="p-0 h-auto justify-start hover:bg-transparent text-blue-600 font-medium"
-                        asChild
-                      >
-                        <Link href={`/blog/${post.id}`} className="flex items-center">
-                          <span>Read more</span>
-                          <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                </div>
+              </Link>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <div className="flex items-center">
+                    <Calendar className="mr-1 h-4 w-4" />
+                    <span>{post.date}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Clock className="mr-1 h-4 w-4" />
+                    <span>{post.readTime}</span>
+                  </div>
+                </div>
+                <Link 
+                  href={post.mediumLink || `/blog/${post.id}`} 
+                  target={post.mediumLink ? "_blank" : "_self"}
+                  className="block group-hover:text-blue-600 transition-colors"
+                >
+                  <h3 className="text-xl font-bold mb-2 line-clamp-2">
+                    {post.title}
+                  </h3>
+                </Link>
+                <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
+                  <div className="flex items-center text-sm">
+                    <User className="mr-2 h-4 w-4 text-muted-foreground" />
+                    <span>{post.author}</span>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    className="p-0 h-auto justify-start hover:bg-transparent text-blue-600 font-medium"
+                    asChild
+                  >
+                    <Link 
+                      href={post.mediumLink || `/blog/${post.id}`} 
+                      className="flex items-center" 
+                      target={post.mediumLink ? "_blank" : "_self"}
+                    >
+                      <span>Read more</span>
+                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
             </div>
           </div>
 
@@ -298,9 +327,11 @@ export default function BlogPage() {
                   { name: "Cloud Computing", icon: <CloudIcon className="h-6 w-6" />, count: 12 },
                   { name: "Development", icon: <CodeIcon className="h-6 w-6" />, count: 18 },
                   { name: "Career Growth", icon: <GraduationIcon className="h-6 w-6" />, count: 8 },
-                  { name: "AI & ML", icon: <BrainIcon className="h-6 w-6" />, count: 10 },
-                  { name: "Events & Recaps", icon: <CalendarIcon className="h-6 w-6" />, count: 15 },
-                  { name: "Education", icon: <BookOpen className="h-6 w-6" />, count: 7 },
+                  { name: "Azure AI & ML", icon: <BrainIcon className="h-6 w-6" />, count: 10 },
+                  { name: ".NET", icon: <Dot className="h-6 w-6" />, count: 15 },
+                  { name: "Microsoft Fabric", icon: <Blocks className="h-6 w-6" />, count: 7 },
+                  { name: "Power Platform", icon: <ActivitySquare className="h-6 w-6" />, count: 7 },
+                  { name: "GitHub", icon: <Github className="h-6 w-6" />, count: 7 },
                 ].map((category, index) => (
                   <Link
                     key={category.name}
@@ -322,12 +353,16 @@ export default function BlogPage() {
                       </CardContent>
                     </Card>
                   </Link>
-                ))}
+                ))
+                
+                }
               </div>
             </div>
           </section>
 
-          {/* Newsletter Section */}
+          {/* Newsletter Section [temporary commented] */}
+
+          {/*
           <section className="relative overflow-hidden rounded-xl depth-3">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
             <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
@@ -354,6 +389,7 @@ export default function BlogPage() {
               </div>
             </div>
           </section>
+          */}
 
           {/* Pagination */}
           <div className="flex justify-center mt-8">
