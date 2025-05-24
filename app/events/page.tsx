@@ -232,7 +232,7 @@ export default function EventsPage() {
         <div className="space-y-10">
           {/* Tabs Section */}
           <div className="flex justify-center">
-            <Tabs defaultValue="upcoming" className="w-full max-w-4xl">
+            <Tabs defaultValue="upcoming" className="w-full max-w-7xl">
               <TabsList className="grid w-full grid-cols-2 h-12 p-1 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
                 <TabsTrigger
                   value="upcoming"
