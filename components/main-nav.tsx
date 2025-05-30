@@ -49,31 +49,31 @@ export function MainNav() {
         <nav className="hidden md:flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+            className="text-sm font-medium text-muted-foreground transition-colors"
           >
             Home
           </Link>
           <Link
             href="/events"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+            className="text-sm font-medium text-muted-foreground transition-colors"
           >
             Events
           </Link>
           <Link
             href="/board"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+            className="text-sm font-medium text-muted-foreground transition-colors"
           >
             Board
           </Link>
           <Link
             href="/blog"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+            className="text-sm font-medium text-muted-foreground transition-colors"
           >
             Blog
           </Link>
           <Link
             href="/about"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary reveal"
+            className="text-sm font-medium text-muted-foreground transition-colors"
           >
             About Us
           </Link>

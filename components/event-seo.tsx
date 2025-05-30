@@ -27,7 +27,7 @@ export function generateEventMetadata(event: Event): Metadata {
     openGraph: {
       title: event.title,
       description: event.description,
-      type: "event",
+      type: "website", // or "article" — "event" might not be a valid type
       images: [
         {
           url: event.image || "https://msclub-uwu.netlify.app/og-image.jpg",
@@ -46,6 +46,7 @@ export function generateEventMetadata(event: Event): Metadata {
     alternates: {
       canonical: `https://msclub-uwu.netlify.app/events/${event.id}`,
     },
-  }
+  } satisfies Metadata
 }
+
 
