@@ -1,18 +1,21 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CalendarDays, Users, BookOpen, ChevronRight } from "lucide-react"
-import { HeroParallax } from "@/components/hero-parallax"
-import { FeatureHighlight } from "@/components/feature-highlight"
-import { EventsCarousel } from "@/components/events-carousel"
-import { TestimonialSlider } from "@/components/testimonial-slider"
-import { StatsCounter } from "@/components/stats-counter"
-import { PartnersGrid } from "@/components/partners-grid"
-import { OrganizationSchema, WebPageSchema } from "@/components/structured-data"
-import type { Metadata } from "next"
-import { ContactForm } from "@/components/contact-form"
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CalendarDays, Users, BookOpen, ChevronRight, Calendar, Clock, User } from "lucide-react";
+import { HeroParallax } from "@/components/hero-parallax";
+import { FeatureHighlight } from "@/components/feature-highlight";
+import EventsCarousel  from "@/components/events-carousel";
+import { StatsCounter } from "@/components/stats-counter";
+import { PartnersGrid } from "@/components/partners-grid";
+import { OrganizationSchema, WebPageSchema } from "@/components/structured-data";
+import type { Metadata } from "next";
+import { ContactForm } from "@/components/contact-form";
+import { Reviews } from "@/components/reviews";
+import { MentorReviews } from "@/components/mentorship";
+import { blogpost } from "./blog/blogpost";
+import { upcomingEvents, pastEvents} from "./events/events";
 
 export const metadata: Metadata = {
   title: "MS Club UWU - Microsoft Student Club of Uva Wellassa University",
@@ -28,11 +31,12 @@ export const metadata: Metadata = {
     url: "https://msclub-uwu.netlify.app",
     type: "website",
   },
-}
+};
 
 export default function Home() {
   return (
     <>
+      {/* Structured Data for SEO */}
       <OrganizationSchema />
       <WebPageSchema
         title="MS Club UWU - Microsoft Student Club of Uva Wellassa University"
@@ -40,7 +44,7 @@ export default function Home() {
         url="https://msclub-uwu.netlify.app"
       />
 
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-background">
         {/* Hero Section with Parallax effect */}
         <HeroParallax />
 
@@ -56,26 +60,37 @@ export default function Home() {
           <div className="container space-y-12">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div className="space-y-4 max-w-2xl">
-                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">Upcoming Events</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join Our Next Events</h2>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">
+                  Upcoming Events
+                </Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
+                  Join Our Events
+                </h2>
                 <p className="text-muted-foreground text-lg">
                   Expand your knowledge and network with our upcoming workshops, seminars, and hackathons.
                 </p>
               </div>
-              <Button asChild variant="outline" className="reveal motion-scale group">
+              <Button asChild variant="outline" className="motion-scale group">
                 <Link href="/events" className="flex items-center">
                   View All Events
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
-            {/** upcoming events */}
+            {/* Upcoming events */}
             <EventsCarousel />
           </div>
         </section>
 
         {/* Feature Highlight Section */}
         <FeatureHighlight />
+
+        {/* Reviews Section */}
+        <div className="w-full py-12 relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
+          <Reviews />
+        </div>
+       
+
 
         {/* Key Features Section with Mica effect */}
         <section className="w-full py-16 md:py-24 relative overflow-hidden">
@@ -84,13 +99,15 @@ export default function Home() {
 
           <div className="container relative">
             <div className="text-center mb-16 max-w-3xl mx-auto">
-              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Why Join Us</Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 italic">
-              Inspiring Students to Innovate and Create with Microsoft Technologies
+              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">
+                Why Join Us
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 italic text-black">
+                Inspiring Students to Innovate and Create with Microsoft Technologies
               </h2>
               <p className="text-muted-foreground text-lg">
                 Our club offers unique opportunities to learn, connect, and grow with Microsoft technologies.
-              </p>0.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -155,9 +172,16 @@ export default function Home() {
               </Card>
             </div>
           </div>
+
         </section>
 
-        {/* Testimonials Section */}
+        <MentorReviews />
+
+
+
+
+
+        {/* Testimonials Section (commented out) */}
         {/* <section className="w-full py-16 md:py-24 bg-background">
           <div className="container">
             <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -172,27 +196,14 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* Partners Section */}
-        {/* <section className="w-full py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
-          <div className="container">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
-              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Our Partners</Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Trusted By Industry Leaders</h2>
-              <p className="text-muted-foreground text-lg">
-                We collaborate with leading tech companies to bring you the best opportunities.
-              </p>
-            </div>
-
-            <PartnersGrid />
-          </div>
-        </section> */}
-
         {/* Blog Preview Section */}
         <section className="w-full py-16 md:py-24 bg-background">
           <div className="container">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
               <div className="space-y-4 max-w-2xl">
-                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">Latest Articles</Badge>
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">
+                  Latest Articles
+                </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">From Our Blog</h2>
                 <p className="text-muted-foreground text-lg">
                   Stay updated with the latest news, tutorials, and insights on Microsoft technologies.
@@ -207,109 +218,96 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Blog Post 1 */}
-              <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src="/AzureFun.jpg"
-                    alt="Azure Workshop"
-                    fill
-                    
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">Cloud</Badge>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center text-sm text-muted-foreground mb-3">
-                    <CalendarDays className="mr-2 h-4 w-4" />
-                    <span>Mar 25, 2025</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                  Introduction to Azure Fundamentals: A Beginner’s Guide                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                  Imagine you need to run a powerful application, but your personal computer isn’t strong enough. Instead of buying expensive hardware, you can use cloud computing—where a company like Microsoft provides the necessary resources over the internet. Cloud computing allows businesses and individuals to access computing power, storage, and applications on demand, without the need for physical infrastructure.                  </p>
-                  <Link href="https://medium.com/@rvihini/introduction-to-azure-fundamentals-a-beginners-guide-6cf86486d29f" className="text-blue-600 font-medium flex items-center hover:underline">
-                    Read More
-                    <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              {blogpost.slice(0, 3).map((post, index) => (
+                <Card
+                  key={post.id}
+                  className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <Link
+                    href={post.mediumLink || `/blog/${post.id}`}
+                    target={post.mediumLink ? "_blank" : "_self"}
+                    className="block"
+                  >
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
+                      <Image
+                        src={post.image || "/placeholder.svg"}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute top-3 right-3 z-20">
+                        <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">{post.category}</Badge>
+                      </div>
+                    </div>
                   </Link>
-                </CardContent>
-              </Card>
-
-              {/* Blog Post 2 */}
-              <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src="/CICD.jpg"
-                    alt="Microsoft Certifications"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">Career</Badge>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center text-sm text-muted-foreground mb-3">
-                    <CalendarDays className="mr-2 h-4 w-4" />
-                    <span>May 25, 2023</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                  CI/CD Pipeline for Web App Deployment with Docker, Azure DevOps, and Azure Container Registry                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                  Are you looking to deploy your Projects to Azure? With Azure DevOps, you can automate your app’s build and deployment processes with continuous integration (CI) and continuous deployment (CD). This guide will walk you through the steps to set up CI/CD pipelines for both the frontend and backend of your project. Let’s dive in!                  </p>
-                  <Link href="https://medium.com/@abhixsh__/ci-cd-pipeline-for-web-app-deployment-with-docker-azure-devops-and-azure-container-registry-fd385042b755" className="text-blue-600 font-medium flex items-center hover:underline">
-                    Read More
-                    <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </CardContent>
-              </Card>
-
-              {/* Blog Post 3 */}
-              <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 motion-fade group">
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src="/Azurevr.jpg"
-                    alt="Power Apps"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <Badge className="bg-blue-600 hover:bg-blue-700 depth-1">Development</Badge>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center text-sm text-muted-foreground mb-3">
-                    <CalendarDays className="mr-2 h-4 w-4" />
-                    <span>May 18, 2023</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
-                  Creating Your First Azure Virtual Machine: A Beginner’s Guide                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                  In this article, I’ll walk you through creating an Azure Virtual Machine (VM) from scratch. Not only will you learn how to set up your VM, also, you’ll discover how to host a simple static web frontend such as a React web app from your GitHub repository on your newly created cloud virtual machine.                  </p>
-                  <Link href="/blog/3" className="text-blue-600 font-medium flex items-center hover:underline">
-                    Read More
-                    <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                      <div className="flex items-center">
+                        <Calendar className="mr-1 h-4 w-4" />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="mr-1 h-4 w-4" />
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                    <Link
+                      href={post.mediumLink || `/blog/${post.id}`}
+                      target={post.mediumLink ? "_blank" : "_self"}
+                      className="block group-hover:text-blue-600 transition-colors"
+                    >
+                      <h3 className="text-xl font-bold mb-2 line-clamp-2">
+                        {post.title}
+                      </h3>
+                    </Link>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
+                      <div className="flex items-center text-sm gap-2">
+                        {/* <User className="mr-2 h-4 w-4 text-muted-foreground" /> */}
+                        <div className="">
+                          <img src={post.image} className="w-8 h-8 rounded-full" />
+                        </div>
+                        <span>{post.author}</span>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        className="p-0 h-auto justify-start hover:bg-transparent text-blue-600 font-medium"
+                        asChild
+                      >
+                        <Link
+                          href={post.mediumLink || `/blog/${post.id}`}
+                          className="flex items-center"
+                          target={post.mediumLink ? "_blank" : "_self"}
+                        >
+                          <span>Read more</span>
+                          <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* Contact Us Section */}
         <section className="w-full py-16 md:py-24 bg-background">
           <div className="container">
-            <div className="text-center mb-16 max-w-3xl mx-auto">
+            {/* <div className="text-center mb-16 max-w-3xl mx-auto">
               <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Contact Us</Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Let's Connect</h2>
               <p className="text-muted-foreground text-lg">
                 Have questions or want to learn more about our club? Reach out to us and we'll get back to you soon.
               </p>
-            </div>
+            </div> */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="container flex flex-row justify-center">
               <div className="space-y-8">
-                <div className="space-y-4">
+                <div className="space-y-4 flex-col items-center justify-center text-center">
                   <h3 className="text-2xl font-bold">Get In Touch</h3>
                   <p className="text-muted-foreground">
                     We'd love to hear from you! Whether you have questions about membership, upcoming events, or just
@@ -317,7 +315,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 flex gap-16 justify-center items-baseline">
                   <div className="flex items-start gap-4">
                     <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
                       <svg
@@ -393,20 +391,21 @@ export default function Home() {
                 </div>
               </div>
 
-              <div>
-                <ContactForm />
-              </div>
+              {/* Contact form (commented for now) */}
+              {/* <div><ContactForm /></div> */}
             </div>
           </div>
         </section>
+
         {/* Call to Action with Acrylic effect */}
         <section className="w-full py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#0078D4] to-[#005A9E]"></div>
-          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
 
           <div className="container relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <Badge className="bg-white/20 text-white hover:bg-white/30 border-none mb-6">Join Our Community</Badge>
+              <Badge className="bg-white/20 text-white hover:bg-white/30 border-none mb-6">
+                Join Our Community
+              </Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
                 Ready to Start Your Tech Journey?
               </h2>
@@ -415,18 +414,13 @@ export default function Home() {
                 connections.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale">
+                <Button asChild size="lg" className="bg-blue-600 text-white depth-2 motion-scale">
                   <Link href="/register">
                     Register Now
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale"
-                >
+                <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 depth-1 motion-scale">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>
@@ -435,5 +429,5 @@ export default function Home() {
         </section>
       </div>
     </>
-  )
+  );
 }

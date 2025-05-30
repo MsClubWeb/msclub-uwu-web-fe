@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ChevronRight, Code, Award, Users } from "lucide-react"
 
+
 export function FeatureHighlight() {
   const sectionRef = useRef<HTMLElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
@@ -59,11 +60,6 @@ export function FeatureHighlight() {
                 HackMS'25
               </div>
 
-              <div className="absolute bottom-6 left-6 right-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Innovating the Future with Microsoft</h3>
-                <p className="text-white/80 text-sm">
-                HackMS'25 invites brilliant minds to tackle real-world challenges using Microsoft technologies. Join us to create, collaborate, and inspire solutions that shape tomorrow.                </p>
-              </div>
             </div>
 
             {/* Decorative elements */}
