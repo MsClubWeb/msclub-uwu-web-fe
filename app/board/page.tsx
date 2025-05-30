@@ -39,7 +39,6 @@ export default function BoardPage() {
       {/* Hero Section */}
       <section className="relative w-full py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
         {/* Decorative elements - with Sri Lankan tea leaf pattern */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
@@ -74,97 +73,79 @@ export default function BoardPage() {
 
       <div className="container py-12">
         <div className="space-y-16">
+
+
           {/* Executive Board */}
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div>
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-2">Leadership</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter">Top Board Members</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">Executive Committee</h2>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {boardMembers.slice(0, 4).map((member, index) => (
                 <Card
-                  key={member.id}
-                  className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="aspect-square relative">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+  key={member.id}
+  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+  style={{ animationDelay: `${(index + 3) * 100}ms` }}
+>
+  <CardContent className="p-6">
+    <div className="flex flex-col items-center text-center space-y-4">
+      {/* Profile Image without Blue Circle */}
+      <div className="h-32 w-32 rounded-full overflow-hidden relative">
+        <Image
+          src={member.image || "/placeholder.svg"}
+          alt={member.name}
+          width={128}
+          height={128}
+          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
+      <div>
+        {/* Name and Role */}
+        <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
+        <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+      </div>
 
-                    {/* Tea leaf pattern overlay - very subtle */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent mix-blend-overlay"></div>
+      {/* Social Media Icons */}
+      <div className="flex space-x-4">
+        {member.social.linkedin && (
+          <Link
+            href={member.social.linkedin}
+            className="text-muted-foreground hover:text-blue-600 transition-colors"
+          >
+            <Linkedin className="h-5 w-5" />
+            <span className="sr-only">LinkedIn</span>
+          </Link>
+        )}
+        {member.social.github && (
+          <Link
+            href={member.social.github}
+            className="text-muted-foreground hover:text-blue-600 transition-colors"
+          >
+            <Github className="h-5 w-5" />
+            <span className="sr-only">GitHub</span>
+          </Link>
+        )}
+      </div>
+    </div>
+  </CardContent>
+</Card>
 
-                    {/* Decorative corner element inspired by Sri Lankan patterns */}
-                    <div className="absolute top-0 right-0 w-16 h-16 opacity-30">
-                      <svg
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full text-white"
-                      >
-                        <path d="M0,0 C50,0 100,50 100,100 L100,0 L0,0 Z" fill="currentColor" />
-                      </svg>
-                    </div>
-                  </div>
-                  <CardContent className="p-6 relative">
-                    {/* Subtle tea leaf pattern in the background */}
-                    <div className="absolute top-0 right-0 w-20 h-20 opacity-5">
-                      <svg
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full text-blue-600"
-                      >
-                        <path
-                          d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M16.9,15.5c-1.3,1.3-3,2.1-4.9,2.1s-3.6-0.8-4.9-2.1 c-1.3-1.3-2.1-3-2.1-4.9s0.8-3.6,2.1-4.9c1.3-1.3,3-2.1,4.9-2.1s3.6,0.8,4.9,2.1c1.3,1.3,2.1,3,2.1,4.9S18.2,14.2,16.9,15.5z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </div>
 
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
-                        <p className="text-blue-600 font-medium">{member.role}</p>
-                        {/* Year with Calendar Icon - ADDED */}
-                        <div className="flex items-center text-muted-foreground text-sm mt-1">
-                          <Calendar className="h-4 w-4 mr-1" />
-                          <span>{member.year}</span>
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground">{member.bio}</p>
-                      <div className="flex space-x-4">
-                        {member.social.linkedin && (
-                          <Link
-                            href={member.social.linkedin}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Linkedin className="h-5 w-5" />
-                            <span className="sr-only">LinkedIn</span>
-                          </Link>
-                        )}
-                        {member.social.github && (
-                          <Link
-                            href={member.social.github}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Github className="h-5 w-5" />
-                            <span className="sr-only">GitHub</span>
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
               ))}
             </div>
           </div>
+
+
+
+
+
+
+
+
 
           {/* Executive Committee */}
           <div className="space-y-8">
@@ -175,58 +156,57 @@ export default function BoardPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {ExecutiveCommittee.slice(0, 7).map((member, index) => (
-                <Card
-                  key={member.id}
-                  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="h-24 w-24 rounded-full overflow-hidden depth-1 relative">
-                        <Image
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          width={96}
-                          height={96}
-                          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
-                        />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                  {ExecutiveCommittee.slice(0, 7).map((member, index) => (
+                    <Card
+                      key={member.id}
+                      className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+                      style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="h-32 w-32 rounded-full overflow-hidden relative">
+                            <Image
+                              src={member.image || "/placeholder.svg"}
+                              alt={member.name}
+                              width={128}
+                              height={128}
+                              className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+                            />
+                          </div>
+                          <div>
+                            {/* Even smaller font size for name */}
+                            <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3> {/* Use text-sm here */}
+                            <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+                          </div>
+                          <div className="flex space-x-4">
+                            {member.social.linkedin && (
+                              <Link
+                                href={member.social.linkedin}
+                                className="text-muted-foreground hover:text-blue-600 transition-colors"
+                              >
+                                <Linkedin className="h-5 w-5" />
+                                <span className="sr-only">LinkedIn</span>
+                              </Link>
+                            )}
+                            {member.social.github && (
+                              <Link
+                                href={member.social.github}
+                                className="text-muted-foreground hover:text-blue-600 transition-colors"
+                              >
+                                <Github className="h-5 w-5" />
+                                <span className="sr-only">GitHub</span>
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
 
-                        {/* Subtle decorative border inspired by Sri Lankan patterns */}
-                        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
-                      </div>
-                      <div>
-                        <h3 className="font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
-                        <p className="text-blue-600 text-sm font-medium">{member.role}</p>
-                        {/* Year with Calendar Icon - ADDED */}
-                      </div>
-                      <p className="text-sm text-muted-foreground">{member.bio}</p>
-                      <div className="flex space-x-4">
-                        {member.social.linkedin && (
-                          <Link
-                            href={member.social.linkedin}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Linkedin className="h-4 w-4" />
-                            <span className="sr-only">LinkedIn</span>
-                          </Link>
-                        )}
-                        {member.social.github && (
-                          <Link
-                            href={member.social.github}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Github className="h-4 w-4" />
-                            <span className="sr-only">GitHub</span>
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+
+
           </div>
 
           {/* Committee Members */}
@@ -238,62 +218,54 @@ export default function BoardPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {committeeMembers.slice(0, 13).map((member, index) => (
-                <Card
-                  key={member.id}
-                  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="h-24 w-24 rounded-full overflow-hidden depth-1 relative">
-                        <Image
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          width={96}
-                          height={96}
-                          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
-                        />
-
-                        {/* Subtle decorative border inspired by Sri Lankan patterns */}
-                        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
-                      </div>
-                      <div>
-                        <h3 className="font-bold group-hover:text-blue-600 transition-colors">{member.name}</h3>
-
-                        {/* Year with Calendar Icon - ADDED */}
-                        {/* <div className="flex items-center justify-center text-muted-foreground text-sm mt-1">
-                          <Calendar className="h-3 w-3 mr-1" />
-                          <span>{member.year}</span>
-                        </div> */}
-                      </div>
-                      <p className="text-sm text-muted-foreground">{member.bio}</p>
-                      <div className="flex space-x-4">
-                        {member.social.linkedin && (
-                          <Link
-                            href={member.social.linkedin}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Linkedin className="h-4 w-4" />
-                            <span className="sr-only">LinkedIn</span>
-                          </Link>
-                        )}
-                        {member.social.github && (
-                          <Link
-                            href={member.social.github}
-                            className="text-muted-foreground hover:text-blue-600 transition-colors"
-                          >
-                            <Github className="h-4 w-4" />
-                            <span className="sr-only">GitHub</span>
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                  {committeeMembers.slice(0, 13).map((member, index) => (
+                    <Card
+                      key={member.id}
+                      className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
+                      style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="h-32 w-32 rounded-full overflow-hidden relative">
+                            <Image
+                              src={member.image || "/placeholder.svg"}
+                              alt={member.name}
+                              width={128}
+                              height={128}
+                              className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+                            />
+                          </div>
+                          <div>
+                            {/* Even smaller font size for name */}
+                            <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3> {/* Use text-sm here */}
+                            <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+                          </div>
+                          <div className="flex space-x-4">
+                            {member.social.linkedin && (
+                              <Link
+                                href={member.social.linkedin}
+                                className="text-muted-foreground hover:text-blue-600 transition-colors"
+                              >
+                                <Linkedin className="h-5 w-5" />
+                                <span className="sr-only">LinkedIn</span>
+                              </Link>
+                            )}
+                            {member.social.github && (
+                              <Link
+                                href={member.social.github}
+                                className="text-muted-foreground hover:text-blue-600 transition-colors"
+                              >
+                                <Github className="h-5 w-5" />
+                                <span className="sr-only">GitHub</span>
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
           </div>
         </div>
       </div>
