@@ -24,6 +24,7 @@ import type { Metadata } from "next";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import PastEvents from "@/components/PastEvents";
 
+
 export const metadata: Metadata = {
   title: "Events | MS Club UWU",
   description:
@@ -46,8 +47,7 @@ async function getUpcomingEvents() {
     {
     id: 1,
     title: "Azure Cloud Workshop",
-    description:
-      "Dive into cloud-native development with Microsoft Azure. Learn best practices for building scalable, resilient applications using Azure Kubernetes Service and Azure Functions.",
+    description: "Dive into cloud-native development with Microsoft Azure. Learn best practices for building scalable, resilient applications using Azure Kubernetes Service and Azure Functions.",
     date: "August 15, 2025",
     time: "7:00 PM - 9:00 PM",
     location: "MS Teams (Online)",
@@ -57,8 +57,7 @@ async function getUpcomingEvents() {
   {
     id: 2,
     title: "InnovateX - YouTube Series",
-    description:
-      "An engaging YouTube series session for students to explore building AI agents using Azure AI Foundry, as part of the InnovateX series. Learn how to leverage Microsoft technologies to develop intelligent solutions.",
+    description: "An engaging YouTube series session for students to explore building AI agents using Azure AI Foundry, as part of the InnovateX series. Learn how to leverage Microsoft technologies to develop intelligent solutions.",
     date: "June 20, 2025",
     time: "7:00 PM - 9:00 PM",
     location: "MS Teams (Online)",
@@ -120,6 +119,9 @@ async function getUpcomingEvents() {
     image: "/placeholder.svg?height=250&width=500",
     category: "Productivity",
   },
+  ];
+
+const pastEvents = [
   {
     id: 8,
     title: "Microsoft Tech Talks – YouTube Series",
@@ -139,8 +141,7 @@ async function getPastEvents() {
     {
     id: 101,
     title: "Annual General Meeting (AGM)",
-    description:
-      "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
+    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
     date: "January 8, 2025",
     time: "6:00 PM onwards",
     location: "TLT",
@@ -318,12 +319,12 @@ export default async function EventsPage() {
               hear from you!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale"
-              >
+                className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale">
                 <Link href="/contact">
                   Propose an Event
                   <ChevronRight className="ml-2 h-5 w-5" />
