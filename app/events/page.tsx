@@ -13,7 +13,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WebPageSchema } from "@/components/structured-data";
 import { Input } from "@/components/ui/input";
 import type { Metadata } from "next";
-import { upcomingEvents, pastEvents } from "./events";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import PastEvents from "@/components/PastEvents";
 
@@ -33,7 +32,47 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EventsPage() {
+// Function to fetch upcoming events from your database
+async function getUpcomingEvents() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events/upcoming`, {
+      cache: 'no-store', // Use 'force-cache' or revalidate for better performance
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch upcoming events');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching upcoming events:', error);
+    return [];
+  }
+}
+
+// Function to fetch past events from your database
+async function getPastEvents() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events/past`, {
+      cache: 'no-store', // Use 'force-cache' or revalidate for better performance
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch past events');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching past events:', error);
+    return [];
+  }
+}
+
+export default async function EventsPage() {
+  // Fetch events from database
+  const upcomingEvents = await getUpcomingEvents();
+  const pastEvents = await getPastEvents();
+
   return (
     <>
       <WebPageSchema
