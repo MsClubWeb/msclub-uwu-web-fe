@@ -35,7 +35,12 @@ export const metadata: Metadata = {
 // Function to fetch upcoming events from your database
 async function getUpcomingEvents() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events/upcoming`, {
+    // For server-side rendering, we need to use a full URL
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    
+    const response = await fetch(`${baseUrl}/api/events/upcoming`, {
       cache: 'no-store', // Use 'force-cache' or revalidate for better performance
     });
     
@@ -53,7 +58,12 @@ async function getUpcomingEvents() {
 // Function to fetch past events from your database
 async function getPastEvents() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/events/past`, {
+    // For server-side rendering, we need to use a full URL
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000';
+    
+    const response = await fetch(`${baseUrl}/api/events/past`, {
       cache: 'no-store', // Use 'force-cache' or revalidate for better performance
     });
     

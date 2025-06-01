@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Clock, MapPin, CalendarDays } from "lucide-r
 import Image from "next/image"
 import Link from "next/link"
 
-export default function PastEventsCarousel({ events }: { events: any[] }) {
+export default function PastEvents({ events }: { events: any[] }) {
     const [activeIndex, setActiveIndex] = useState(0)
     const [isAnimating, setIsAnimating] = useState(false)
     const [visibleItems, setVisibleItems] = useState(3)
@@ -34,14 +34,14 @@ export default function PastEventsCarousel({ events }: { events: any[] }) {
     const nextSlide = () => {
         if (isAnimating) return
         setIsAnimating(true)
-        setActiveIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 0.5));
+        setActiveIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
         setTimeout(() => setIsAnimating(false), 500)
     }
 
     const prevSlide = () => {
         if (isAnimating) return
         setIsAnimating(true)
-        setActiveIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 0.5));
+        setActiveIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
         setTimeout(() => setIsAnimating(false), 500)
     }
 
@@ -73,11 +73,10 @@ export default function PastEventsCarousel({ events }: { events: any[] }) {
                 </Button>
             </div>
 
-            <div ref={carouselRef} className="overflow-hidden px-4">
-                <div
+            <div ref={carouselRef} className="overflow-hidden px-4">                <div
                     className="flex transition-transform duration-1000 ease-out"
                     style={{
-                        transform: `translateX(-${activeIndex * 100}%)`,
+                        transform: `translateX(-${activeIndex * (100 / totalPages)}%)`,
                         width: `${totalPages * 100}%`,
                     }}
                 >

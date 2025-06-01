@@ -14,7 +14,7 @@ export default function UpcomingEvents({ upcomingEvents }: { upcomingEvents: any
     const [visibleItems, setVisibleItems] = useState(3);
     const carouselRef = useRef<HTMLDivElement>(null);
 
-    const totalPages = Math.ceil(upcomingEvents.length / visibleItems);
+    const totalPages = Math.max(1, Math.ceil(upcomingEvents.length / visibleItems));
 
     useEffect(() => {
         const handleResize = () => {
@@ -74,16 +74,15 @@ export default function UpcomingEvents({ upcomingEvents }: { upcomingEvents: any
                 </Button>
             </div>
 
-            <div ref={carouselRef} className="overflow-hidden px-4">
-                <div
+            <div ref={carouselRef} className="overflow-hidden px-4">                <div
                     className="flex transition-transform duration-1000 ease-out"
                     style={{
-                        transform: `translateX(-${activeIndex * (100 / visibleItems)}%)`,
-                        width: `${(upcomingEvents.length * 100) / visibleItems}%`,
+                        transform: `translateX(-${activeIndex * (100 / totalPages)}%)`,
+                        width: `${totalPages * 100}%`,
                     }}
                 >
                     {upcomingEvents.map((event) => (
-                        <div key={event.id} className="px-3" style={{ width: `${100 / upcomingEvents.length}%` }}>
+                        <div key={event.id} className="px-3" style={{ width: `${100 / (visibleItems * totalPages)}%` }}>
                             <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 h-full flex flex-col group">
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image
