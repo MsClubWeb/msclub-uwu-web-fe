@@ -40,13 +40,15 @@ const getEventById = (id: string) => {
   }
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const event = getEventById(params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const event = getEventById(id)
   return generateEventMetadata(event)
 }
 
-export default function EventDetailPage({ params }: { params: { id: string } }) {
-  const event = getEventById(params.id)
+export default async function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const event = getEventById(id)
 
   return (
     <>
@@ -62,11 +64,10 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
         <div className="absolute bottom-1/4 left-[15%] w-48 h-48 rounded-full bg-indigo-500/20 blur-3xl"></div>
 
         <div className="container relative z-10 text-white">
-          <div className="max-w-4xl mx-auto">
-            <Breadcrumb
+          <div className="max-w-4xl mx-auto">            <Breadcrumb
               items={[
                 { label: "Events", href: "/events" },
-                { label: event.title, href: `/events/${params.id}`, isCurrent: true },
+                { label: event.title, href: `/events/${id}`, isCurrent: true },
               ]}
             />
 
@@ -225,10 +226,8 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                         style={{ width: `${(event.registered / event.capacity) * 100}%` }}
                       ></div>
                     </div>
-                  </div>
-
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 reveal motion-scale group" asChild>
-                    <Link href={`/events/${params.id}/register`} className="flex items-center justify-center">
+                  </div>                  <Button className="w-full bg-blue-600 hover:bg-blue-700 reveal motion-scale group" asChild>
+                    <Link href={`/events/${id}/register`} className="flex items-center justify-center">
                       Register Now
                       <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -413,9 +412,8 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-white mb-6">Secure Your Spot Today</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Join us for this exciting event and take your skills to the next level. Limited seats available!
-            </p>
-            <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale">
-              <Link href={`/events/${params.id}/register`}>
+            </p>            <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale">
+              <Link href={`/events/${id}/register`}>
                 Register Now
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
