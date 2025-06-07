@@ -228,8 +228,8 @@ export default function EventsPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
+      <section className="relative w-full py-20 overflow-hidden bg-[url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/AzureAppService-Desktop-Hero-BG?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3200&hei=1164&qlt=100&fmt=png-alpha&fit=constrain')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-gradient-to-b opacity-80"></div>
 
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
@@ -237,13 +237,13 @@ export default function EventsPage() {
 
         <div className="container relative z-10 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="bg-white/20 hover:bg-white/30 text-white border-none mb-4">
+            <Badge className="bg-white/20 hover:bg-white/30 border-none mb-4 text-blue-800 bg-blue-100">
               Upcoming Events
             </Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
+            <h1 className="text-gray-900 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
               Discover Our Events
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-gray-700 text-xl text-blue-100 mb-8">
               Join us for workshops, seminars, hackathons, and more to enhance
               your skills in Microsoft technologies.
             </p>
