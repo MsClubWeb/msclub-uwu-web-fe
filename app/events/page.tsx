@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -7,41 +9,21 @@ import {
   CalendarDays,
   Clock,
   MapPin,
-  Search,
   ChevronRight,
+  Cloud,
+  Zap,
+  Trophy,
+  BarChart3,
+  Code,
+  Target,
 } from "lucide-react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WebPageSchema } from "@/components/structured-data";
-import { Input } from "@/components/ui/input";
-import type { Metadata } from "next";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import PastEvents from "@/components/PastEvents";
+import { useState, useEffect } from "react";
 
-
-export const metadata: Metadata = {
-  title: "Events | MS Club UWU",
-  description:
-    "Join our workshops, seminars, hackathons, and more to enhance your skills in Microsoft technologies.",
-  alternates: {
-    canonical: "https://msclub-uwu.netlify.app/events",
-  },
-  openGraph: {
-    title: "Events | MS Club UWU",
-    description:
-      "Join our workshops, seminars, hackathons, and more to enhance your skills in Microsoft technologies.",
-    url: "https://msclub-uwu.netlify.app/events",
-    type: "website",
-  },
-};
-
-async function getUpcomingEvents() {
+function getUpcomingEvents() {
   // Simulated fetch; replace with actual API or DB call
   return [
     {
@@ -77,7 +59,7 @@ async function getUpcomingEvents() {
   },
   {
     id: 4,
-    title: "HackMS’ 2025",
+    title: "HackMS' 2025",
     description:
       "A hands-on hackathon focused on building real-world solutions using Microsoft technologies. Network, code, and compete with the best!",
     date: "July 5-6, 2025",
@@ -120,28 +102,14 @@ async function getUpcomingEvents() {
     category: "Productivity",
   },
   ];
-
-const pastEvents = [
-  {
-    id: 8,
-    title: "Microsoft Tech Talks – YouTube Series",
-    description:
-      "Engaging YouTube sessions for students, covering the latest in Microsoft technologies including Azure, Power Platform, and more.",
-    date: "June 20, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "MS Teams (Online)",
-    image: "/placeholder.svg?height=250&width=500",
-    category: "Productivity",
-  },
-  ];
 }
 
-async function getPastEvents() {
+function getPastEvents() {
   return [
     {
     id: 101,
     title: "Annual General Meeting (AGM)",
-    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club’s future initiatives and direction.",
+    description: "The inaugural AGM of the club introduced the initial executive committee and laid the foundation for the club's future initiatives and direction.",
     date: "January 8, 2025",
     time: "6:00 PM onwards",
     location: "TLT",
@@ -194,9 +162,62 @@ async function getPastEvents() {
   ];
 }
 
-export default async function EventsPage() {
-  const upcomingEvents = await getUpcomingEvents();
-  const pastEvents = await getPastEvents();
+const categories = [
+  { name: "All", icon: Target, color: "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700" },
+  { name: "Cloud", icon: Cloud, color: "bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50" },
+  { name: "Productivity", icon: Zap, color: "bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-300 dark:hover:bg-green-900/50" },
+  { name: "Hackathon", icon: Trophy, color: "bg-orange-100 text-orange-700 hover:bg-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:hover:bg-orange-900/50" },
+  { name: "Data", icon: BarChart3, color: "bg-purple-100 text-purple-700 hover:bg-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:hover:bg-purple-900/50" },
+  { name: "Development", icon: Code, color: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50" },
+  { name: "Competition", icon: Target, color: "bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-900/50" },
+];
+
+type Event = {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  image: string;
+  category: string;
+};
+
+export default function EventsPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+  const [filteredUpcomingEvents, setFilteredUpcomingEvents] = useState<Event[]>([]);
+  const [filteredPastEvents, setFilteredPastEvents] = useState<Event[]>([]);
+
+  // Load events on component mount
+  useEffect(() => {
+    const upcoming = getUpcomingEvents();
+    const past = getPastEvents();
+    setUpcomingEvents(upcoming);
+    setPastEvents(past);
+    setFilteredUpcomingEvents(upcoming);
+    setFilteredPastEvents(past);
+  }, []);
+
+  // Filter events when category changes
+  useEffect(() => {
+    if (selectedCategory === "All") {
+      setFilteredUpcomingEvents(upcomingEvents);
+      setFilteredPastEvents(pastEvents);
+    } else {
+      setFilteredUpcomingEvents(
+        upcomingEvents.filter(event => event.category === selectedCategory)
+      );
+      setFilteredPastEvents(
+        pastEvents.filter(event => event.category === selectedCategory)
+      );
+    }
+  }, [selectedCategory, upcomingEvents, pastEvents]);
+
+  const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+  };
 
   return (
     <>
@@ -230,39 +251,39 @@ export default async function EventsPage() {
         </div>
       </section>
 
-      {/* Search and Filter Section */}
+      {/* Category Buttons Section */}
       <section className="py-8 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="p-6 bg-white/80 dark:bg-black/40 backdrop-blur-sm rounded-xl depth-2 border border-white/20 dark:border-white/5">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="search"
-                    placeholder="Search events..."
-                    className="pl-10 reveal h-11 bg-white/50 dark:bg-black/20"
-                  />
-                </div>
-                <div className="flex gap-2">
-                  <Select>
-                    <SelectTrigger className="w-[160px] reveal h-11 bg-white/50 dark:bg-black/20">
-                      <SelectValue placeholder="All Categories" />
-                    </SelectTrigger>
-                    <SelectContent className="acrylic depth-2">
-                      <SelectItem value="all">All Categories</SelectItem>
-                      <SelectItem value="cloud">Cloud</SelectItem>
-                      <SelectItem value="data">Data</SelectItem>
-                      <SelectItem value="development">Development</SelectItem>
-                      <SelectItem value="hackathon">Hackathon</SelectItem>
-                      <SelectItem value="productivity">Productivity</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Button className="bg-blue-600 hover:bg-blue-700 reveal motion-scale h-11">
-                    Filter
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Browse by Category
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                Filter events by your areas of interest
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
+              {categories.map((category) => {
+                const IconComponent = category.icon;
+                const isSelected = selectedCategory === category.name;
+                return (
+                  <Button
+                    key={category.name}
+                    variant="ghost"
+                    onClick={() => handleCategoryClick(category.name)}
+                    className={`${
+                      isSelected 
+                        ? category.color.replace('hover:', '') + ' ring-2 ring-current/30 scale-105' 
+                        : category.color
+                    } flex flex-col items-center justify-center h-20 p-3 rounded-xl transition-all duration-200 motion-scale border border-transparent hover:border-current/20 cursor-pointer`}
+                  >
+                    <IconComponent className="h-5 w-5 mb-1" />
+                    <span className="text-sm font-medium">{category.name}</span>
                   </Button>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -290,10 +311,24 @@ export default async function EventsPage() {
 
               {/* Events */}
               <TabsContent value="upcoming" className="mt-8">
-                <UpcomingEvents upcomingEvents={upcomingEvents} />
+                <UpcomingEvents upcomingEvents={filteredUpcomingEvents} />
+                {filteredUpcomingEvents.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500 dark:text-gray-400 text-lg">
+                      No upcoming events found for "{selectedCategory}" category.
+                    </p>
+                  </div>
+                )}
               </TabsContent>
               <TabsContent value="past" className="mt-8">
-                <PastEvents events={pastEvents} />
+                <PastEvents events={filteredPastEvents} />
+                {filteredPastEvents.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500 dark:text-gray-400 text-lg">
+                      No past events found for "{selectedCategory}" category.
+                    </p>
+                  </div>
+                )}
               </TabsContent>
             </Tabs>
           </div>
