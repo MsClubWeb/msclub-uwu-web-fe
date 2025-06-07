@@ -229,7 +229,7 @@ export default function EventsPage() {
 
       {/* Hero Section */}
       <section className="relative w-full py-20 overflow-hidden bg-[url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/AzureAppService-Desktop-Hero-BG?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3200&hei=1164&qlt=100&fmt=png-alpha&fit=constrain')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-gradient-to-b opacity-80"></div>
+        <div className="absolute inset-0 "></div>
 
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
@@ -243,7 +243,7 @@ export default function EventsPage() {
             <h1 className="text-gray-900 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
               Discover Our Events
             </h1>
-            <p className="text-gray-700 text-xl text-blue-100 mb-8">
+            <p className="text-gray-700 text-xl mb-8">
               Join us for workshops, seminars, hackathons, and more to enhance
               your skills in Microsoft technologies.
             </p>
@@ -335,40 +335,6 @@ export default function EventsPage() {
         </div>
       </div>
 
-      {/* Call to Action Section */}
-      <section className="w-full py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge className="bg-white/20 text-white hover:bg-white/30 border-none mb-6">
-              Host Your Own Event
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
-              Have an Idea for an Event?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              We're always looking for new ideas and collaborations. If you have
-              a concept for a workshop, seminar, or any tech event, we'd love to
-              hear from you!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale">
-                <Link href="/contact">
-                  Propose an Event
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
