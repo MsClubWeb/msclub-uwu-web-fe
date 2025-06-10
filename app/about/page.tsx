@@ -67,41 +67,39 @@ export default function AboutPage() {
         <div className="absolute bottom-1/4 left-[15%] w-48 h-48 rounded-full bg-[#0078D4]/20 blur-3xl"></div>
 
         <div className="container relative z-10 text-white">
-          <div className="max-w-3xl">
-            <Badge className="bg-white/20 hover:bg-white/30 text-white border-none mb-4">
-              About Us
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
-              Microsoft Student Club
-            </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl">
-              Empowering students with Microsoft technologies and fostering a
-              community of future tech leaders since 2015. Learn, connect, and
-              grow with us.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                size="lg"
-                variant="fluent"
-                className="depth-2 motion-scale group"
-              >
-                <Link href="/register" className="flex items-center">
-                  Join Our Club
-                  <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white/20 depth-1 motion-scale"
-              >
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-            </div>
+        <div className="max-w-3xl">
+          <Badge className="bg-white/20 hover:bg-white/30 text-white border-none mb-4">
+            About Us
+          </Badge>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
+            Microsoft Student Club
+          </h1>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl">
+            Empowering students with Microsoft technologies and fostering a
+            community of future tech leaders since 2015. Learn, connect, and
+            grow with us.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white border-none depth-2 motion-scale group"
+            >
+              <Link href="/register" className="flex items-center">
+                Join Our Club
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white border-none depth-1 motion-scale"
+            >
+              <Link href="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
+      </div>
       </section>
 
       {/* Our Mission Section */}

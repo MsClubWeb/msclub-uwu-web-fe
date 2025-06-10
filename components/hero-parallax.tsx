@@ -82,36 +82,44 @@ export function HeroParallax() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale group">
-                <Link href="/events" className="flex items-center">
-                  Explore Events
-                  <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 text-white hover:bg-blue-700 depth-2 motion-scale group"
+            >
+              <Link href="/events" className="flex items-center">
+                Explore Events
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
 
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-blue-600 hover:bg-white/20 depth-1 motion-scale"
-              >
-                <Link href="/about">Register Now</Link>
-              </Button>
-            </div>
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 text-white hover:bg-blue-700 depth-1 motion-scale"
+            >
+              <Link href="/about">Register Now</Link>
+            </Button>
+          </div>
+
+
           </div>
 
           <div className="relative hidden lg:block" style={{ transform: `translateY(${calculateParallax(-0.15)}px)` }}>
             <div className="relative h-[500px] w-full">
               {/* Main image */}
-              <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-lg overflow-hidden depth-3 border border-white/20">
-                <Image
-                  src="https://msclub-uwu.netlify.app/logo.png"// secons image 
-                  alt="MS Club Event"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+                <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-lg overflow-hidden depth-3 border border-white/20 p-4 bg-white/20">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="https://msclub-uwu.netlify.app/logo.png"
+                      alt="MS Club Event"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </div>
+
 
               {/* Floating card 1 */}
               <div className="absolute bottom-20 left-0 w-[200px] bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm p-4 rounded-lg depth-2 animate-float-slow">
@@ -143,7 +151,10 @@ export function HeroParallax() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+
+    
+      {/* Scroll indicator Tempary commented */}
+      {/*
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white animate-bounce"
         style={{ opacity: Math.max(0, 1 - scrollY / 300) }}
@@ -152,7 +163,8 @@ export function HeroParallax() {
         <div className="h-10 w-6 rounded-full border-2 border-white/50 flex items-center justify-center">
           <div className="h-2 w-2 rounded-full bg-white animate-pulse"></div>
         </div>
-      </div>
+      </div> 
+      */}
     </section>
   )
 }

@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
 import {
   CalendarDays,
   Clock,
@@ -17,11 +16,14 @@ import {
   Code,
   Target,
 } from "lucide-react";
+
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WebPageSchema } from "@/components/structured-data";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import PastEvents from "@/components/PastEvents";
 import { useState, useEffect } from "react";
+
 
 function getUpcomingEvents() {
   // Simulated fetch; replace with actual API or DB call
@@ -218,6 +220,7 @@ export default function EventsPage() {
     setSelectedCategory(categoryName);
   };
 
+
   return (
     <>
       <WebPageSchema
@@ -308,7 +311,7 @@ export default function EventsPage() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Events */}
+              {/* Events using separate components */}
               <TabsContent value="upcoming" className="mt-8">
                 <UpcomingEvents upcomingEvents={filteredUpcomingEvents} />
                 {filteredUpcomingEvents.length === 0 && (
@@ -333,6 +336,7 @@ export default function EventsPage() {
           </div>
         </div>
       </div>
+
 
     </>
   );

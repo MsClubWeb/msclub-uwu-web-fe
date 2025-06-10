@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { WebPageSchema } from "@/components/structured-data"
 import type { Metadata } from "next"
+import { blogpost,featuredPost } from "./blogpost"
 
 export const metadata: Metadata = {
   title: "Blog | MS Club UWU",
@@ -25,89 +26,9 @@ export const metadata: Metadata = {
   },
 }
 
-// Simulated blog post data
-const blogPosts = [
-  {
-    id: 1,
-    title: "Introduction to Azure Fundamentals: A Beginner’s Guide",
-    excerpt: "Imagine you need to run a powerful application, but your personal computer isn’t strong enough. Instead of buying expensive hardware, you can use cloud computing—where a company like Microsoft provides the necessary resources over the internet. Cloud computing allows businesses and individuals to access computing power, storage, and applications on demand, without the need for physical infrastructure.",
-    date: "June 1, 2023",
-    author: "Vihini Ranasingha",
-    readTime: "5 min read",
-    image: "/articles/article1new.jpg?height=500&width=250",
-    category: "Cloud",
-    mediumLink: "https://medium.com/@rvihini/introduction-to-azure-fundamentals-a-beginners-guide-6cf86486d29f",
-  },
-  {
-    id: 2,
-    title: "CI/CD Pipeline for Web App Deployment with Docker, Azure DevOps, and Azure Container Registry",
-    excerpt: "Are you looking to deploy your Projects to Azure? With Azure DevOps, you can automate your app’s build and deployment processes with continuous integration (CI) and continuous deployment (CD). This guide will walk you through the steps to set up CI/CD pipelines for both the frontend and backend of your project. Let’s dive in!",
-    date: "May 25, 2023",
-    author: "Abishek Haththakage",
-    readTime: "8 min read",
-    image: "/articles/article2new.jpg?height=500&width=250",
-    category: "Career",
-    mediumLink: "https://medium.com/@abhixsh__/ci-cd-pipeline-for-web-app-deployment-with-docker-azure-devops-and-azure-container-registry-fd385042b755",
-  },
-  {
-    id: 3,
-    title: "Creating Your First Azure Virtual Machine: A Beginner’s Guide",
-    excerpt: "In this article, I’ll walk you through creating an Azure Virtual Machine (VM) from scratch. Not only will you learn how to set up your VM, also, you’ll discover how to host a simple static web frontend such as a React web app from your GitHub repository on your newly created cloud virtual machine.",
-    date: "May 18, 2023",
-    author: "Theekshana Nirmal",
-    readTime: "10 min read",
-    image: "/articles/article3new.jpg?height=500&width=250",
-    category: "Development",
-    mediumLink: "https://theek.medium.com/creating-your-first-azure-virtual-machine-a-beginners-guide-3777540baeaa",
-  },
-  {
-    id: 4,
-    title: "A Beginner’s Guide: Deploying Your First Static Web Site using Azure App Services",
-    excerpt: "Are you want to share your newly built static website (like a simple frontend) with the world? Azure App Service simplifies the deployment process, making it accessible even for those new to cloud platforms. In this article, I’ll guide you through the step-by-step process of deploying your site from a GitHub repository to Azure Static Web Apps. Let’s get started!",
-    date: "May 10, 2023",
-    author: "Theekshana Nirmal",
-    readTime: "7 min read",
-    image: "/articles/article4new.jpg?height=500&width=250",
-    category: "Development",
-    mediumLink: "https://theek.medium.com/a-beginners-guide-deploying-your-first-static-web-site-using-azure-app-services-400b303fd511",
-  },
-  {
-    id: 5,
-    title: "How to Create a Bastion Host for Secure Access to Private AWS Servers",
-    excerpt: "A Bastion Host (also known as a Jump Host) is a special server used to securely access other computers or servers in a private network. It acts as a gateway to your internal resources, allowing only trusted users to enter the network.",
-    date: "May 5, 2023",
-    author: "Abishek Haththakage",
-    readTime: "4 min read",
-    image: "/articles/article5new.jpg?height=500&width=250",
-    category: "Events",
-    mediumLink: "https://medium.com/@abhixsh__/how-to-create-a-bastion-host-for-secure-access-to-private-aws-servers-b2e689c97f99",
-  },
-  {
-    id: 6,
-    title: "Provision an Azure Virtual Machine Using Terraform with Remote State and GitHub Actions",
-    excerpt: "In this guide, I’ll show you how I used Terraform to create a Virtual Machine (VM) in Microsoft Azure, store the state remotely in Azure Storage, and automate the whole process using GitHub Actions.",
-    date: "April 28, 2023",
-    author: "Abishek Haththakage",
-    readTime: "6 min read",
-    image: "/articles/article6new.jpg?height=100&width=100",
-    category: "AI",
-    mediumLink: "https://medium.com/@abhixsh__/provision-an-azure-virtual-machine-using-terraform-with-remote-state-and-github-actions-41d80e042fa3",
-  },
-]
 
 // Featured post
-const featuredPost = {
-  id: 7,
-  title: "A Beginner’s Guide: Deploying Your First Static Web Site using Azure App Services",
-  excerpt: "Exploring how Microsoft's latest innovations are transforming the educational landscape and preparing students for the workforce of tomorrow.",
-  date: "June 5, 2023",
-  author: "Theekshana Nirmal",
-  readTime: "12 min read",
-  image: "/articles/art7.png?height=1200&width=600",
-  category: "Education",
-  mediumLink: "https://theek.medium.com/a-beginners-guide-deploying-your-first-static-web-site-using-azure-app-services-400b303fd511",
 
-}
 
 export default function BlogPage() {
   return (
@@ -121,7 +42,6 @@ export default function BlogPage() {
       {/* Hero Section */}
       <section className="relative w-full py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
@@ -179,49 +99,6 @@ export default function BlogPage() {
 
       <div className="container py-12">
         <div className="space-y-16">
-          {/* Featured Post */}
-          <div className="relative rounded-xl overflow-hidden depth-3 motion-fade animate-in fade-in-0 slide-in-from-bottom-5">
-            <Link
-              href={featuredPost.mediumLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block relative h-[500px] w-full group"
-            >
-              <Image
-                src={featuredPost.image || "/placeholder.svg"}
-                alt={featuredPost.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                priority
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 text-white">
-                <Badge className="mb-6 bg-blue-600 hover:bg-blue-700">{featuredPost.category}</Badge>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 motion-fade">{featuredPost.title}</h2>
-                <p className="text-white/80 mb-6 max-w-3xl text-lg motion-fade">{featuredPost.excerpt}</p>
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/70 mb-8">
-                  <div className="flex items-center">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    <span>{featuredPost.date}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>{featuredPost.author}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="mr-2 h-4 w-4" />
-                    <span>{featuredPost.readTime}</span>
-                  </div>
-                </div>
-                <div className="inline-flex items-center text-blue-100 hover:text-white font-medium transition">
-                  Read Article <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
-            </Link>
-          </div>
-
-
           {/* Latest Articles */}
           <div>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
@@ -239,7 +116,7 @@ export default function BlogPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
-            {blogPosts.map((post, index) => (
+            {blogpost.map((post, index) => (
             <Card
               key={post.id}
               className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 group border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
@@ -311,7 +188,8 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* Categories Section */}
+          {/* Categories Section  temparary commented */}
+          {/*
           <section className="py-12 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background rounded-xl">
             <div className="max-w-5xl mx-auto px-6">
               <div className="text-center mb-12">
@@ -359,6 +237,9 @@ export default function BlogPage() {
               </div>
             </div>
           </section>
+
+              */}
+
 
           {/* Newsletter Section [temporary commented] */}
 

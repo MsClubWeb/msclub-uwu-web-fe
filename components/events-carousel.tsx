@@ -1,58 +1,16 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { CalendarDays, Clock, MapPin, ChevronLeft, ChevronRight } from "lucide-react"
+import { CalendarDays, Clock, MapPin, ChevronLeft, ChevronRight, Users, Building } from "lucide-react"
+import { upcomingEvents, pastEvents } from "@/app/events/events";
 
-// Sample event data
-const events = [
-  {
-    id: 1,
-    title: "HackMS’ 2025",
-    description: "A hands-on hackathon focused on building real-world solutions using Microsoft technologies. Network, code, and compete with the best!",
-    date: "July 5–6, 2025",
-    time: "All Day",
-    location: "Uva Wellassa University",
-    image: "/HackMs.png",
-    category: "Hackathon",
-  },
-  {
-    id: 2,
-    title: "InnovateX - YouTube Series",
-    description: "An engaging YouTube series session for students to explore building AI agents using Azure AI Foundry, as part of the InnovateX series. Learn how to leverage Microsoft technologies to develop intelligent solutions.",
-    date: "June 20, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "MS Teams (Online)",
-    image: "/June 20, 2025.png",
-    category: "Webinar",
-  },
-  {
-    id: 3,
-    title: "InnovateX – YouTube Series",
-    description: "Discover how AI and Copilot tools are transforming productivity. This session will showcase real-world use cases and demos on integrating AI into your daily workflow.",
-    date: "July 18, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "MS Teams (Online)",
-    image: "/July 18, 2025.png",
-    category: "Webinar",
-  },
-  {
-    id: 4,
-    title: "InnovateX – YouTube Series",
-    description: "Dive into cloud-native development with Microsoft Azure. Learn best practices for building scalable, resilient applications using Azure Kubernetes Service and Azure Functions.",
-    date: "August 15, 2025",
-    time: "7:00 PM - 9:00 PM",
-    location: "MS Teams (Online)",
-    image: "/August 15, 2025.png",
-    category: "Webinar",
-  },
-]
+// Sample event data with enhanced speakers and partners
 
-export function EventsCarousel() {
+
+export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -70,7 +28,7 @@ export function EventsCarousel() {
       }
     }
 
-    handleResize() // Initial call
+    handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
@@ -78,14 +36,14 @@ export function EventsCarousel() {
   const nextSlide = () => {
     if (isAnimating) return
     setIsAnimating(true)
-    setActiveIndex((prev) => (prev === events.length - visibleItems ? 0 : prev + 1))
+    setActiveIndex((prev) => (prev === upcomingEvents.length - visibleItems ? 0 : prev + 1))
     setTimeout(() => setIsAnimating(false), 500)
   }
 
   const prevSlide = () => {
     if (isAnimating) return
     setIsAnimating(true)
-    setActiveIndex((prev) => (prev === 0 ? events.length - visibleItems : prev - 1))
+    setActiveIndex((prev) => (prev === 0 ? upcomingEvents.length - visibleItems : prev - 1))
     setTimeout(() => setIsAnimating(false), 500)
   }
 
@@ -96,7 +54,7 @@ export function EventsCarousel() {
         <Button
           variant="outline"
           size="icon"
-          className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm depth-1 hover:depth-2"
+          className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-xl"
           onClick={prevSlide}
           disabled={isAnimating}
         >
@@ -109,7 +67,7 @@ export function EventsCarousel() {
         <Button
           variant="outline"
           size="icon"
-          className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm depth-1 hover:depth-2"
+          className="h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg hover:shadow-xl"
           onClick={nextSlide}
           disabled={isAnimating}
         >
@@ -124,46 +82,106 @@ export function EventsCarousel() {
           className="flex transition-transform duration-500 ease-out"
           style={{
             transform: `translateX(-${activeIndex * (100 / visibleItems)}%)`,
-            width: `${(events.length * 100) / visibleItems}%`,
+            width: `${(upcomingEvents.length * 100) / visibleItems}%`,
           }}
         >
-          {events.map((event) => (
-            <div key={event.id} className="px-3" style={{ width: `${100 / events.length}%` }}>
-              <Card className="overflow-hidden depth-2 hover:depth-3 transition-all duration-300 h-full flex flex-col group">
+          {upcomingEvents.map((event) => (
+            <div key={event.id} className="px-3" style={{ width: `${100 / upcomingEvents.length}%` }}>
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col group bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={event.image || "/placeholder.svg"}
+                  <img
+                    src={event.image}
                     alt={event.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-2 right-2">
-                    <Badge className="bg-[#0078D4] hover:bg-[#0078D4]/90 depth-1">{event.category}</Badge>
+                    <Badge className="bg-[#0078D4] hover:bg-[#0078D4]/90 text-white shadow-md">
+                      {event.category}
+                    </Badge>
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
+                
                 <CardContent className="p-6 flex-1 flex flex-col">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                       {event.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">{event.description}</p>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{event.description}</p>
                   </div>
+
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <CalendarDays className="mr-2 h-4 w-4" />
+                      <CalendarDays className="mr-2 h-4 w-4 text-blue-600" />
                       <span>{event.date}</span>
                     </div>
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <Clock className="mr-2 h-4 w-4" />
+                      <Clock className="mr-2 h-4 w-4 text-blue-600" />
                       <span>{event.time}</span>
                     </div>
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="mr-2 h-4 w-4" />
+                      <MapPin className="mr-2 h-4 w-4 text-blue-600" />
                       <span>{event.location}</span>
                     </div>
                   </div>
-                  <Button asChild variant="outline" className="w-full reveal motion-scale">
-                    <Link href={`/events/${event.id}`}>View Details</Link>
+
+                  {/* Speakers Section */}
+                  <div className="mb-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Users className="h-4 w-4 text-blue-600" />
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Speakers</span>
+                    </div>
+                    <div className="space-y-2">
+                      {event.speakers.slice(0, 2).map((speaker, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <div className="w-6 h-6 relative rounded-full overflow-hidden border-2 border-blue-200">
+                            <img
+                              src={speaker.image}
+                              alt={speaker.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium truncate">{speaker.name}</p>
+                            <p className="text-xs text-muted-foreground truncate">
+                              {speaker.title} @ {speaker.company}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                      {event.speakers.length > 2 && (
+                        <p className="text-xs text-muted-foreground">
+                          +{event.speakers.length - 2} more speakers
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Partners Section */}
+                  <div className="mb-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Building className="h-4 w-4 text-blue-600" />
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Partners</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {event.partners.map((partner, index) => (
+                        <div key={index} className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-md px-2 py-1">
+                          <img
+                            src={partner.logo}
+                            alt={partner.name}
+                            className="w-4 h-4 object-contain"
+                          />
+                          <span className="text-xs font-medium">{partner.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Button 
+                    variant="outline" 
+                    className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-blue-200 hover:border-blue-300 text-blue-700 hover:text-blue-800 transition-all duration-200"
+                  >
+                    View Details
                   </Button>
                 </CardContent>
               </Card>
@@ -174,11 +192,13 @@ export function EventsCarousel() {
 
       {/* Indicators */}
       <div className="flex justify-center mt-8 gap-2">
-        {Array.from({ length: events.length - visibleItems + 1 }).map((_, index) => (
+        {Array.from({ length: upcomingEvents.length - visibleItems + 1 }).map((_, index) => (
           <button
             key={index}
-            className={`h-2 rounded-full transition-all ${
-              index === activeIndex ? "w-8 bg-blue-600" : "w-2 bg-gray-300 dark:bg-gray-700"
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === activeIndex 
+                ? "w-8 bg-blue-600 shadow-md" 
+                : "w-2 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
             }`}
             onClick={() => {
               if (!isAnimating) {
@@ -194,4 +214,3 @@ export function EventsCarousel() {
     </div>
   )
 }
-
