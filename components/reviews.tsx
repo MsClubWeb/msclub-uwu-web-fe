@@ -41,6 +41,10 @@ const reviews = [
   },
 ];
 
+// Split reviews into two rows
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
 const ReviewCard = ({
   img,
   name,
@@ -102,16 +106,22 @@ export function Reviews() {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          {/* First row - normal direction */}
           <Marquee pauseOnHover className="[--duration:25s]">
-            {reviews.map((review) => (
+            {firstRow.map((review) => (
               <ReviewCard key={review.username} {...review} />
             ))}
           </Marquee>
           
-          {/* Gradient fade edges matching homepage background */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-background to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-background to-transparent"></div>
+          {/* Second row - reverse direction */}
+          <Marquee reverse pauseOnHover className="[--duration:25s]">
+            {secondRow.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+          
+
         </div>
       </div>
     </section>

@@ -9,7 +9,6 @@ import { upcomingEvents, pastEvents } from "@/app/events/events";
 
 // Sample event data with enhanced speakers and partners
 
-
 export default function EventsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
@@ -103,13 +102,15 @@ export default function EventsCarousel() {
                 </div>
                 
                 <CardContent className="p-6 flex-1 flex flex-col">
-                  <div className="flex-1">
+                  {/* Title and Description - Fixed height area */}
+                  <div className="mb-4 min-h-[120px]">
                     <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                       {event.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-3">{event.description}</p>
+                    <p className="text-muted-foreground line-clamp-3">{event.description}</p>
                   </div>
 
+                  {/* Event Details - Fixed position */}
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-muted-foreground">
                       <CalendarDays className="mr-2 h-4 w-4 text-blue-600" />
@@ -125,64 +126,75 @@ export default function EventsCarousel() {
                     </div>
                   </div>
 
-                  {/* Speakers Section */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Users className="h-4 w-4 text-blue-600" />
-                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Speakers</span>
-                    </div>
-                    <div className="space-y-2">
-                      {event.speakers.slice(0, 2).map((speaker, index) => (
-                        <div key={index} className="flex items-center gap-2">
-                          <div className="w-6 h-6 relative rounded-full overflow-hidden border-2 border-blue-200">
-                            <img
-                              src={speaker.image}
-                              alt={speaker.name}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">{speaker.name}</p>
-                            <p className="text-xs text-muted-foreground truncate">
-                              {speaker.title} @ {speaker.company}
+                  {/* Speakers Section - Always takes same space */}
+                  <div className="mb-4 min-h-[100px]">
+                    {event.speakers && event.speakers.length > 0 ? (
+                      <>
+                        <div className="flex items-center gap-2 mb-3">
+                          <Users className="h-4 w-4 text-blue-600" />
+                          <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Speakers</span>
+                        </div>
+                        <div className="space-y-2">
+                          {event.speakers.slice(0, 2).map((speaker, index) => (
+                            <div key={index} className="flex items-center gap-2">
+                              <div className="w-6 h-6 relative rounded-full overflow-hidden border-2 border-blue-200">
+                                <img
+                                  src={speaker.image}
+                                  alt={speaker.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium truncate">{speaker.name}</p>
+                                <p className="text-xs text-muted-foreground truncate">
+                                  {speaker.title} @ {speaker.company}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                          {event.speakers.length > 2 && (
+                            <p className="text-xs text-muted-foreground">
+                              +{event.speakers.length - 2} more speakers
                             </p>
-                          </div>
+                          )}
                         </div>
-                      ))}
-                      {event.speakers.length > 2 && (
-                        <p className="text-xs text-muted-foreground">
-                          +{event.speakers.length - 2} more speakers
-                        </p>
-                      )}
-                    </div>
+                      </>
+                    ) : (
+                      <div className="flex items-center gap-2 text-gray-400 dark:text-gray-600">
+                        <Users className="h-4 w-4" />
+                        <span className="text-sm">Speakers TBA</span>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Partners Section */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Building className="h-4 w-4 text-blue-600" />
-                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Partners</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {event.partners.map((partner, index) => (
-                        <div key={index} className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-md px-2 py-1">
-                          <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className="w-4 h-4 object-contain"
-                          />
-                          <span className="text-xs font-medium">{partner.name}</span>
+                  {/* Partners Section - Always takes same space */}
+                  <div className="mb-4 min-h-[60px]">
+                    {event.partners && event.partners.length > 0 && (
+                      <>
+                        <div className="flex items-center gap-2 mb-3">
+                          <Building className="h-4 w-4 text-blue-600" />
+                          <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Partners</span>
                         </div>
-                      ))}
-                    </div>
+                        <div className="flex flex-wrap gap-2">
+                          {event.partners.map((partner, index) => (
+                            <div key={index} className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-md px-2 py-1">
+                              <img
+                                src={partner.logo}
+                                alt={partner.name}
+                                className="w-4 h-4 object-contain"
+                              />
+                              <span className="text-xs font-medium">{partner.name}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-blue-200 hover:border-blue-300 text-blue-700 hover:text-blue-800 transition-all duration-200"
-                  >
-                    View Details
-                  </Button>
+                  {/* Button - Always at bottom */}
+                  <div className="mt-auto">
+
+                  </div>
                 </CardContent>
               </Card>
             </div>

@@ -112,7 +112,7 @@ export function StatsCounter() {
                   ? "bg-[#107C10]"
                   : index === 2
                     ? "bg-[#FFB900]"
-                    : "bg-[#E74C3C]"
+                    : "bg-[#0078d4]" 
             }`}
           ></div>
           <CardContent className="p-6 flex items-center">

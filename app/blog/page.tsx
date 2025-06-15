@@ -39,63 +39,30 @@ export default function BlogPage() {
         url="https://msclub-uwu.netlify.app/blog"
       />
 
-      {/* Hero Section */}
-      <section className="relative w-full py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
+          {/* Hero Section */}
+          <section className="relative w-full py-20 overflow-hidden bg-[url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/AzureAppService-Desktop-Hero-BG?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3200&hei=1164&qlt=100&fmt=png-alpha&fit=constrain')] bg-cover bg-center">
+            <div className="absolute inset-0 "></div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-[15%] w-48 h-48 rounded-full bg-[#0078D4]/20 blur-3xl"></div>
+            {/* Decorative elements */}
+            <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
+            <div className="absolute bottom-1/4 left-[15%] w-48 h-48 rounded-full bg-[#0078D4]/20 blur-3xl"></div>
 
-        <div className="container relative z-10 text-white">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge className="bg-white/20 hover:bg-white/30 text-white border-none mb-4">Our Blog</Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">Insights & Tutorials</h1>
-            <p className="text-xl text-blue-100 mb-8">
-              Stay updated with the latest news, tutorials, and insights on Microsoft technologies and club activities.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Search and Filter Section */}
-      <section className="py-8 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="p-6 bg-white/80 dark:bg-black/40 backdrop-blur-sm rounded-xl depth-2 border border-white/20 dark:border-white/5">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input
-                    type="search"
-                    placeholder="Search articles..."
-                    className="pl-10 reveal h-11 bg-white/50 dark:bg-black/20"
-                  />
-                </div>
-                <div className="flex gap-2">
-                  <Select>
-                    <SelectTrigger className="w-[160px] reveal h-11 bg-white/50 dark:bg-black/20">
-                      <SelectValue placeholder="All Categories" />
-                    </SelectTrigger>
-                    <SelectContent className="acrylic depth-2">
-                      <SelectItem value="all">All Categories</SelectItem>
-                      <SelectItem value="cloud">Cloud Computing</SelectItem>
-                      <SelectItem value="development">Development</SelectItem>
-                      <SelectItem value="career">Career Growth</SelectItem>
-                      <SelectItem value="ai">Azure AI & ML</SelectItem>
-                      <SelectItem value="net">.NET</SelectItem>
-                      <SelectItem value="fabric">Microsoft Fabric</SelectItem>
-                      <SelectItem value="power">Power Platform</SelectItem>
-                      <SelectItem value="github">GitHub</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Button className="bg-blue-600 hover:bg-blue-700 reveal motion-scale h-11">Filter</Button>
-                </div>
+            <div className="container relative z-10 text-white">
+              <div className="max-w-3xl mx-auto text-center">
+                <Badge className="bg-white/20 hover:bg-white/30 border-none mb-4 text-blue-800 bg-blue-100">
+                  Our Blog
+                </Badge>
+                <h1 className="text-gray-900 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
+                  Insights & Tutorials
+                </h1>
+                <p className="text-gray-700 text-xl mb-8">
+                  Stay updated with the latest news, tutorials, and insights on Microsoft technologies and club activities.
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+
+      
 
       <div className="container py-12">
         <div className="space-y-16">

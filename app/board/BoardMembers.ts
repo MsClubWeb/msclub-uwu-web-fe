@@ -2,10 +2,11 @@ export const boardMembers = [
   {
     id: 1,
     Status:"Active",
-    name: "Mr.Jananath Kithulwaththa",
+    name: "W.M.C.J.T.Kithulwatta",
     role: "Senior Advisor/ Senior Treasure ",
     year: "2023-2024",
-    image: "/images/ExecutiveMembers/SeniorAdviser.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/SeniorAdviser.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/chirantha-jananath-thiwanka-kithulwatta-3563ba131",
       github: "https://github.com",
@@ -18,9 +19,10 @@ export const boardMembers = [
     name: "Abishek Haththakage",
     role: "President",
     year: "2023-2024",
-    image: "/images/ExecutiveMembers/Abishek Haththakage.webp?height=300&width=300",
+    level: "gold",
+    image: "/images/ExecutiveMembers/Abishek Haththakage.jpg?height=300&width=300",
     social: {
-      linkedin: "https://www.linkedin.com/in/abhixsh/",
+      linkedin: "https://www.linkedin.com/ibhixsh/",
       github: "https://github.com/abhixsh",
     },
   },
@@ -29,8 +31,9 @@ export const boardMembers = [
     Status:"Active",
     name: "Chamini Palliyaguru",
     year: "2023-2024",
+    level: "gold",
     role: "Vice President",
-    image: "/images/ExecutiveMembers/Chamini Palliyaguru.webp?height=300&width=300",
+    image: "/images/ExecutiveMembers/Chamini Palliyaguru.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/chamini-palliyaguru/",
       github: "https://github.com/chaminipalliyaguru",
@@ -43,7 +46,8 @@ export const boardMembers = [
     name: "Vihini Ranasinghe",
     role: "Secretary",
     year: "2023-2024",
-    image: "/images/ExecutiveMembers/Vihini Ranasinghe.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Vihini Ranasinghe.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/vihini-wathsiluni-a57b1323a",
       github: "https://github.com/Vihini234",
@@ -60,7 +64,8 @@ export const ExecutiveCommittee = [
     name: "Hashanee Weeratunga",
     role: "Assistant Secretary",
     year: "",
-    image: "/images/ExecutiveMembers/Hashanee Weerathunga.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Hashanee Weerathunga.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/hashanee-weeratunga-2611a0325",
       github: "https://github.com/HashaneeWeeratunga",
@@ -72,7 +77,8 @@ export const ExecutiveCommittee = [
     name: "Theekshana Sachintha",
     role: "Junior Treasurer",
     year: "",
-    image: "/images/ExecutiveMembers/Theekshana Sachintha.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Theekshana Sachintha.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/theekshana-sachintha-4b398b215",
       github: "https://github.com/MktSachi",
@@ -84,7 +90,8 @@ export const ExecutiveCommittee = [
     name: "Dharani Samudrika",
     role: "Web Master",
     year: "",
-    image: "/images/ExecutiveMembers/Dharani Samudrika.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Dharani Samudrika.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/dharanisw",
       github: "https://github.com/dharanisw",
@@ -97,7 +104,8 @@ export const ExecutiveCommittee = [
     name: "Gehan Liyanage",
     role: "Media Coordinator",
     year: "",
-    image: "/images/ExecutiveMembers/Gehan Liyanage.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Gehan Liyanage.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/gehan-liyanage",
       github: "https://github.com/GehanLiyanage2002",
@@ -110,7 +118,8 @@ export const ExecutiveCommittee = [
     name: "Theekshana Nirmal",
     role: "Event Organizer",
     year: "",
-    image: "/images/ExecutiveMembers/Theekshana Nirmal.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Theekshana Nirmal.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/theekshana-nirmal-bandara/",
       github: "https://github.com/theekshana-nirmal",
@@ -123,9 +132,10 @@ export const ExecutiveCommittee = [
     name: "Ahinsa Arunodi ",
     role: "Editor",
     year: "",
-    image: "/images/ExecutiveMembers/Ahinsa Arunodi.webp?height=300&width=300",
+    level: "",
+    image: "/images/ExecutiveMembers/Ahinsa Arunodi.jpg?height=300&width=300",
     social: {
-      linkedin: "https://www.linkedin.com/in/ahinsa-arunodi-1158812a0/",
+      linkedin: "https://www.linkedin.com/ihinsa-arunodi-1158812a0/",
       github: "https://github.com/AhinsaAru",
     },
   },
@@ -136,6 +146,7 @@ export const ExecutiveCommittee = [
     name: "Pubudu Harshana",
     role: "Editor",
     year: "",
+    level: "",
     image: "/images/ExecutiveMembers/Pubudu Harshana2.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/pubuduh",
@@ -153,7 +164,8 @@ export const committeeMembers = [
     name: "Lahiru Kumara ",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Lahiru Kumara.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Lahiru Kumara.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/lahiru-kumara-11118a335/",
       github: "https://github.com/lahiru9900",
@@ -165,7 +177,8 @@ export const committeeMembers = [
     name: "Chathursha Samarathunga",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Chathursha Samarathunga.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Chathursha Samarathunga.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/chathursha-apsara-761365320",
       github: "https://github.com/Chathursha",
@@ -178,7 +191,8 @@ export const committeeMembers = [
     name: "Sammani Dias",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Sammani Dias.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Sammani Dias.jpg?height=300&width=300",
     social: {
       linkedin: "www.linkedin.com/in/sammani-dias-0372a9301",
       github: "https://github.com/SamurdhikaSammani",
@@ -191,7 +205,8 @@ export const committeeMembers = [
     name: "Kasun Janith",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Kasun Janith.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Kasun Janith.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/kasun-bandara-728113214",
       github: "https://github.com/KasunJanith",
@@ -203,7 +218,8 @@ export const committeeMembers = [
     name: "Chanuka Isuru",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Chanuka Isuru.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Chanuka Isuru.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/chanuka-isuru-5030492b2/",
       github: "https://github.com/Chanukaisuru",
@@ -215,7 +231,8 @@ export const committeeMembers = [
     name: "Tharindu Dilshan",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Tharindu Dilshan.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Tharindu Dilshan.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/tharindu-dilshan-67bb26313",
       github: "https://github.com",
@@ -228,7 +245,8 @@ export const committeeMembers = [
     name: "Subhani Herath",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Subhani Herath.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Subhani Herath.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/subhani-herath-029323311",
       github: "https://github.com/subhani-herath-a/subhani-herath-a",
@@ -241,7 +259,8 @@ export const committeeMembers = [
     name: "Mohamed Nazik",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Mohamed Nazik.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Mohamed Nazik.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/nazikhassan11",
       github: "https://github.com/Nazik2020",
@@ -254,7 +273,8 @@ export const committeeMembers = [
     name: "Chamandi Sanjula",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Chamandi Sanjula.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Chamandi Sanjula.jpg?height=300&width=300",
     social: {
       linkedin: "http://www.linkedin.com/in/chamandi-s-48921233a",
       github: "https://github.com/chamandiS",
@@ -266,7 +286,8 @@ export const committeeMembers = [
     name: "Sandalu Rubhasinghe",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Sandula Rubhasinghe.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Sandula Rubhasinghe.jpg?height=300&width=300",
     social: {
       linkedin: "https://lk.linkedin.com/in/sandalu-rubasinghe-a44892343",
       github: "https://github.com/sandaluruba",
@@ -278,7 +299,8 @@ export const committeeMembers = [
     name: "Sameesha Pasanya ",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Sameesha Pasanya.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Sameesha Pasanya.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/sameesha-pasanya-mahagamage-758976332",
       github: "https://github.com",
@@ -291,7 +313,8 @@ export const committeeMembers = [
     name: "Tharindu Dilshan",
     role: "",
     year: "",
-    image: "/images/CommiteeMembers/Tharindu Dilshan.webp?height=300&width=300",
+    level: "",
+    image: "/images/CommiteeMembers/Tharindu Dilshan2.jpg?height=300&width=300",
     social: {
       linkedin: "https://www.linkedin.com/in/tharindu-dilshan-67bb26313",
       github: "https://github.com",
