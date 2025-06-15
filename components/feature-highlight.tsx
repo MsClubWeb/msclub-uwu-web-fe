@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ChevronRight, Code, Award, Users } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 
 export function FeatureHighlight() {
@@ -67,60 +67,27 @@ export function FeatureHighlight() {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-indigo-200/30 rounded-full backdrop-blur-sm -z-10"></div>
           </div>
 
-          <div ref={contentRef} className="space-y-6 transition-all duration-700 ease-out">
-            <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">Featured Program</Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">HackMS'25: 	Code. Collaborate. Conquer.</h2>
-            <p className="text-lg text-muted-foreground">
-              Our flagship events bring together students from all disciplines to collaborate, innovate, and compete
-              using Microsoft technologies to solve real-world problems.
-            </p>
-
-            <div className="space-y-4 pt-4">
-              <div className="flex gap-4 items-start">
-                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                  <Code className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium mb-1"> Hands-on Innovation</h3>
-                  <p className="text-muted-foreground">
-                  Take part in solving real-world challenges that matter. HackMS'25 is your chance to turn ideas into action and build something meaningful with guidance and support throughout the event.                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                  <Users className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium mb-1"> Diverse Team Building</h3>
-                  <p className="text-muted-foreground">
-                  Work in teams with people from different backgrounds and skill sets. Whether you're a beginner or experienced, you'll learn from each other, share ideas, and grow together.                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
-                  <Award className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium mb-1">Rewards & Recognition</h3>
-                  <p className="text-muted-foreground">
-                  Showcase your creativity and hard work for a chance to win amazing prizes. Top teams will get recognition, cool rewards, and the opportunity to highlight their projects to a broader audience.
-                  </p>
-                </div>
-              </div>
+          <div ref={contentRef} className="space-y-6 transition-all duration-700 ease-out flex flex-col justify-center">
+            <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none w-fit">Featured Program</Badge>
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">HackMS'25: Code. Collaborate. Conquer.</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Our flagship events bring together students from all disciplines to collaborate, innovate, and compete
+                using Microsoft technologies to solve real-world problems.
+              </p>
             </div>
 
-            <Button asChild className="mt-4 bg-blue-600 hover:bg-blue-700 group">
-              <Link href="/events" className="flex items-center">
-              Hackathon 
-                <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+            <div className="flex justify-center lg:justify-start">
+              <Button asChild className="bg-blue-600 hover:bg-blue-700 group">
+                <Link href="/hackathon" className="flex items-center">
+                  More Info
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-

@@ -19,13 +19,10 @@ export const metadata: Metadata = {
     title: "Board of Members | MS Club UWU",
     description:
       "Meet the dedicated team leading the Microsoft Student Club of Uva Wellassa University and driving our mission forward.",
-    url: "https://msclub-uwu.netlify.app/board",
+    url: "https://msclub-uwu.netlv.app/board",
     type: "website",
   },
 }
-
-// Simulated board members data with added year information
-
 
 export default function BoardPage() {
   return (
@@ -37,33 +34,22 @@ export default function BoardPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0078D4] to-[#005A9E] opacity-90"></div>
+      <section className="relative w-full py-20 overflow-hidden bg-[url('https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/AzureAppService-Desktop-Hero-BG?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=3200&hei=1164&qlt=100&fmt=png-alpha&fit=constrain')] bg-cover bg-center">
+        <div className="absolute inset-0 "></div>
 
-        {/* Decorative elements - with Sri Lankan tea leaf pattern */}
+        {/* Decorative elements */}
         <div className="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-[#50e6ff]/20 blur-3xl"></div>
         <div className="absolute bottom-1/4 left-[15%] w-48 h-48 rounded-full bg-[#0078D4]/20 blur-3xl"></div>
 
-        {/* Subtle mountain silhouette in the background */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#005A9E]/30 to-transparent">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="absolute bottom-0 left-0 right-0 w-full h-32 opacity-20"
-          >
-            <path
-              fill="currentColor"
-              fillOpacity="1"
-              d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
-
         <div className="container relative z-10 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <Badge className="bg-white/20 hover:bg-white/30 text-white border-none mb-4">Our Team</Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">Board of Members</h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <Badge className="bg-white/20 hover:bg-white/30 border-none mb-4 text-blue-800 bg-blue-100">
+              Our Team
+            </Badge>
+            <h1 className="text-gray-900 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
+              Board of Members
+            </h1>
+            <p className="text-gray-700 text-xl mb-8">
               Meet the dedicated team leading the Microsoft Student Club of Uva Wellassa University and driving our
               mission forward.
             </p>
@@ -73,8 +59,6 @@ export default function BoardPage() {
 
       <div className="container py-12">
         <div className="space-y-16">
-
-
           {/* Executive Board */}
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
@@ -84,68 +68,93 @@ export default function BoardPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {boardMembers.slice(0, 4).map((member, index) => (
-                <Card
-  key={member.id}
-  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-  style={{ animationDelay: `${(index + 3) * 100}ms` }}
->
-  <CardContent className="p-6">
-    <div className="flex flex-col items-center text-center space-y-4">
-      {/* Profile Image without Blue Circle */}
-      <div className="h-32 w-32 rounded-full overflow-hidden relative">
-        <Image
-          src={member.image || "/placeholder.svg"}
-          alt={member.name}
-          width={128}
-          height={128}
-          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
-      <div>
-        {/* Name and Role */}
-        <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
-        <p className="text-blue-600 text-sm font-medium">{member.role}</p>
-      </div>
+            <div className="flex flex-wrap justify-center gap-8">
+              
+          
+{boardMembers.slice(0, 4).map((member, index) => (
+  <Card
+    key={member.id}
+    className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5 w-72"
+    style={{ animationDelay: `${(index + 3) * 100}ms` }}
+  >
+    <CardContent className="p-6 relative">
+      <div className="flex flex-col items-center text-center space-y-4">
+        
+        {/* Profile Image */}
+        <div className={`
+          h-32 w-32 rounded-full overflow-hidden relative transition-all duration-300 group
+          ${member.level === "gold" 
+            ? "ring-2 ring-yellow-400" 
+            : ""
+          }
+        `}>
+          
+          {/* Gold Badge Hover Effect */}
+          {member.level === "gold" && (
+            <div className="absolute inset-0 z-10">
+              {/* Blurry background overlay - only covers left 2/5 */}
+              <div className="absolute left-0 top-0 w-2/5 h-full bg-black/30 backdrop-blur-sm rounded-l-full opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out"></div>
+              
+              {/* Gold badge sliding from left */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/5 h-full flex items-center justify-center transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 shadow-lg flex items-center justify-center border-2 border-white">
+                  <Image
+                    src="/images/LevelGold.png"
+                    alt="Gold Member"
+                    width={20}
+                    height={20}
+                    className="object-contain drop-shadow-sm"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+          <Image
+            src={member.image || "/placeholder.svg"}
+            alt={member.name}
+            width={128}
+            height={128}
+            className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
 
-      {/* Social Media Icons */}
-      <div className="flex space-x-4">
-        {member.social.linkedin && (
-          <Link
-            href={member.social.linkedin}
-            className="text-muted-foreground hover:text-blue-600 transition-colors"
-          >
-            <Linkedin className="h-5 w-5" />
-            <span className="sr-only">LinkedIn</span>
-          </Link>
-        )}
-        {member.social.github && (
-          <Link
-            href={member.social.github}
-            className="text-muted-foreground hover:text-blue-600 transition-colors"
-          >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Link>
-        )}
+        <div>
+          {/* Name and Role */}
+          <h3 className="text-xl font-semibold text-gray-800">
+            {member.name}
+          </h3>
+          <p className="text-blue-600 text-sm font-medium">
+            {member.role}
+          </p>
+        </div>
+
+        {/* Social Media Icons */}
+        <div className="flex space-x-4">
+          {member.social.linkedin && (
+            <Link
+              href={member.social.linkedin}
+              className="text-muted-foreground hover:text-blue-600 transition-colors"
+            >
+              <Linkedin className="h-5 w-5" />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+          )}
+          {member.social.github && (
+            <Link
+              href={member.social.github}
+              className="text-muted-foreground hover:text-blue-600 transition-colors"
+            >
+              <Github className="h-5 w-5" />
+              <span className="sr-only">GitHub</span>
+            </Link>
+          )}
+        </div>
       </div>
-    </div>
-  </CardContent>
-</Card>
-
-
-              ))}
+    </CardContent>
+  </Card>
+))}
             </div>
           </div>
-
-
-
-
-
-
-
-
 
           {/* Executive Committee */}
           <div className="space-y-8">
@@ -156,57 +165,71 @@ export default function BoardPage() {
               </div>
             </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                  {ExecutiveCommittee.slice(0, 7).map((member, index) => (
-                    <Card
-                      key={member.id}
-                      className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                      style={{ animationDelay: `${(index + 3) * 100}ms` }}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex flex-col items-center text-center space-y-4">
-                          <div className="h-32 w-32 rounded-full overflow-hidden relative">
-                            <Image
-                              src={member.image || "/placeholder.svg"}
-                              alt={member.name}
-                              width={128}
-                              height={128}
-                              className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
-                            />
-                          </div>
-                          <div>
-                            {/* Even smaller font size for name */}
-                            <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3> {/* Use text-sm here */}
-                            <p className="text-blue-600 text-sm font-medium">{member.role}</p>
-                          </div>
-                          <div className="flex space-x-4">
-                            {member.social.linkedin && (
-                              <Link
-                                href={member.social.linkedin}
-                                className="text-muted-foreground hover:text-blue-600 transition-colors"
-                              >
-                                <Linkedin className="h-5 w-5" />
-                                <span className="sr-only">LinkedIn</span>
-                              </Link>
-                            )}
-                            {member.social.github && (
-                              <Link
-                                href={member.social.github}
-                                className="text-muted-foreground hover:text-blue-600 transition-colors"
-                              >
-                                <Github className="h-5 w-5" />
-                                <span className="sr-only">GitHub</span>
-                              </Link>
-                            )}
+            <div className="flex flex-wrap justify-center gap-8">
+              {ExecutiveCommittee.slice(0, 7).map((member, index) => (
+                <Card
+                  key={member.id}
+                  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5 w-56"
+                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                >
+                  <CardContent className="p-6 relative">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      {/* Gold Badge */}
+                      {member.level === "gold" && (
+                        <div className="absolute -top-2 -right-2 z-10">
+                          <div className="relative">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 border-white/50">
+                              <Image
+                                src="/images/LevelGold.png"
+                                alt="Gold Member"
+                                width={24}
+                                height={24}
+                                className="transition-transform duration-300 hover:rotate-12"
+                              />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-30 blur-sm animate-pulse"></div>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                      )}
 
-
-
+                      <div className="h-32 w-32 rounded-full overflow-hidden relative">
+                        <Image
+                          src={member.image || "/placeholder.svg"}
+                          alt={member.name}
+                          width={128}
+                          height={128}
+                          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3>
+                        <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+                      </div>
+                      <div className="flex space-x-4">
+                        {member.social.linkedin && (
+                          <Link
+                            href={member.social.linkedin}
+                            className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          >
+                            <Linkedin className="h-5 w-5" />
+                            <span className="sr-only">LinkedIn</span>
+                          </Link>
+                        )}
+                        {member.social.github && (
+                          <Link
+                            href={member.social.github}
+                            className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          >
+                            <Github className="h-5 w-5" />
+                            <span className="sr-only">GitHub</span>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           {/* Committee Members */}
@@ -218,90 +241,74 @@ export default function BoardPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                  {committeeMembers.slice(0, 13).map((member, index) => (
-                    <Card
-                      key={member.id}
-                      className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5"
-                      style={{ animationDelay: `${(index + 3) * 100}ms` }}
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex flex-col items-center text-center space-y-4">
-                          <div className="h-32 w-32 rounded-full overflow-hidden relative">
-                            <Image
-                              src={member.image || "/placeholder.svg"}
-                              alt={member.name}
-                              width={128}
-                              height={128}
-                              className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
-                            />
-                          </div>
-                          <div>
-                            {/* Even smaller font size for name */}
-                            <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3> {/* Use text-sm here */}
-                            <p className="text-blue-600 text-sm font-medium">{member.role}</p>
-                          </div>
-                          <div className="flex space-x-4">
-                            {member.social.linkedin && (
-                              <Link
-                                href={member.social.linkedin}
-                                className="text-muted-foreground hover:text-blue-600 transition-colors"
-                              >
-                                <Linkedin className="h-5 w-5" />
-                                <span className="sr-only">LinkedIn</span>
-                              </Link>
-                            )}
-                            {member.social.github && (
-                              <Link
-                                href={member.social.github}
-                                className="text-muted-foreground hover:text-blue-600 transition-colors"
-                              >
-                                <Github className="h-5 w-5" />
-                                <span className="sr-only">GitHub</span>
-                              </Link>
-                            )}
+            <div className="flex flex-wrap justify-center gap-8">
+              {committeeMembers.slice(0, 13).map((member, index) => (
+                <Card
+                  key={member.id}
+                  className="depth-2 hover:depth-3 transition-all duration-300 border-none bg-white/80 dark:bg-black/40 backdrop-blur-sm motion-fade animate-in fade-in-0 slide-in-from-bottom-5 w-56"
+                  style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                >
+                  <CardContent className="p-6 relative">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      {/* Gold Badge */}
+                      {member.level === "gold" && (
+                        <div className="absolute -top-2 -right-2 z-10">
+                          <div className="relative">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 border-white/50">
+                              <Image
+                                src="/images/LevelGold.png"
+                                alt="Gold Member"
+                                width={24}
+                                height={24}
+                                className="transition-transform duration-300 hover:rotate-12"
+                              />
+                            </div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-30 blur-sm animate-pulse"></div>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+                      )}
+
+                      <div className="h-32 w-32 rounded-full overflow-hidden relative">
+                        <Image
+                          src={member.image || "/placeholder.svg"}
+                          alt={member.name}
+                          width={128}
+                          height={128}
+                          className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-800">{member.name}</h3>
+                        <p className="text-blue-600 text-sm font-medium">{member.role}</p>
+                      </div>
+                      <div className="flex space-x-4">
+                        {member.social.linkedin && (
+                          <Link
+                            href={member.social.linkedin}
+                            className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          >
+                            <Linkedin className="h-5 w-5" />
+                            <span className="sr-only">LinkedIn</span>
+                          </Link>
+                        )}
+                        {member.social.github && (
+                          <Link
+                            href={member.social.github}
+                            className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          >
+                            <Github className="h-5 w-5" />
+                            <span className="sr-only">GitHub</span>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Join the Team CTA */}
-      <section className="w-full py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
-
-        {/* Subtle train track pattern at the bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 overflow-hidden">
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-white/10"></div>
-          <div className="absolute bottom-4 left-0 right-0 h-1 bg-white/10"></div>
-          <div className="flex justify-between absolute bottom-0 left-0 right-0">
-            {Array.from({ length: 30 }).map((_, i) => (
-              <div key={i} className="h-4 w-1 bg-white/10"></div>
-            ))}
-          </div>
-        </div>
-
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge className="bg-white/20 text-white hover:bg-white/30 border-none mb-6">Join Our Team</Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
-              Interested in Leadership?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              We're always looking for passionate students to join our leadership team. Applications for board positions
-              open at the beginning of each academic year.
-            </p>
-            <Button asChild size="lg" variant="fluent" className="depth-2 motion-scale">
-              <Link href="/contact">Apply For Board</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

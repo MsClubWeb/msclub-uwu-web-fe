@@ -13,9 +13,10 @@ import { OrganizationSchema, WebPageSchema } from "@/components/structured-data"
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { Reviews } from "@/components/reviews";
-import { MentorReviews } from "@/components/mentorship";
+import { MentorProfiles } from "@/components/mentorship";
 import { blogpost } from "./blog/blogpost";
 import { upcomingEvents, pastEvents} from "./events/events";
+import { committeeMembers } from '@/app/board/BoardMembers';
 
 export const metadata: Metadata = {
   title: "MS Club UWU - Microsoft Student Club of Uva Wellassa University",
@@ -48,51 +49,14 @@ export default function Home() {
         {/* Hero Section with Parallax effect */}
         <HeroParallax />
 
-        {/* Stats Section */}
+        {/* Stats Section  temp commented
         <section className="w-full py-12 relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
           <div className="container">
             <StatsCounter />
           </div>
-        </section>
+        </section>*/ }
 
-        {/* Featured Events Section */}
-        <section className="w-full py-16 md:py-24 bg-background">
-          <div className="container space-y-12">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-              <div className="space-y-4 max-w-2xl">
-                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">
-                  Upcoming Events
-                </Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
-                  Join Our Events
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Expand your knowledge and network with our upcoming workshops, seminars, and hackathons.
-                </p>
-              </div>
-              <Button asChild variant="outline" className="motion-scale group">
-                <Link href="/events" className="flex items-center">
-                  View All Events
-                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
-            {/* Upcoming events */}
-            <EventsCarousel />
-          </div>
-        </section>
-
-        {/* Feature Highlight Section */}
-        <FeatureHighlight />
-
-        {/* Reviews Section */}
-        <div className="w-full py-12 relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
-          <Reviews />
-        </div>
-       
-
-
-        {/* Key Features Section with Mica effect */}
+                {/* Key Features Section with Mica effect */}
         <section className="w-full py-16 md:py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background"></div>
           <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1920')] bg-cover bg-center opacity-5 mix-blend-overlay"></div>
@@ -175,7 +139,43 @@ export default function Home() {
 
         </section>
 
-        <MentorReviews />
+        {/* Featured Events Section */}
+        <section className="w-full py-16 md:py-24 bg-background">
+          <div className="container space-y-12">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+              <div className="space-y-4 max-w-2xl">
+                <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none">
+                  Upcoming Events
+                </Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-black">
+                  Join Our Events
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Expand your knowledge and network with our upcoming workshops, seminars, and hackathons.
+                </p>
+              </div>
+              <Button asChild variant="outline" className="motion-scale group">
+                <Link href="/events" className="flex items-center">
+                  View All Events
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
+            {/* Upcoming events */}
+            <EventsCarousel />
+          </div>
+        </section>
+
+        {/* Feature Highlight Section */}
+        <FeatureHighlight />
+
+        {/* Reviews Section */}
+        <div className="w-full py-12 relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
+          <Reviews />
+        </div>
+      
+
+        <MentorProfiles />
 
 
 
@@ -268,7 +268,7 @@ export default function Home() {
                       <div className="flex items-center text-sm gap-2">
                         {/* <User className="mr-2 h-4 w-4 text-muted-foreground" /> */}
                         <div className="">
-                          <img src={post.image} className="w-8 h-8 rounded-full" />
+                          <img src={post.authorimage} className="w-8 h-8 rounded-full" />
                         </div>
                         <span>{post.author}</span>
                       </div>
@@ -293,18 +293,20 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+         
+              
         {/* Contact Us Section */}
-        <section className="w-full py-16 md:py-24 bg-background">
+        {/* <section className="w-full py-16 md:py-24 bg-background">
           <div className="container">
-            {/* <div className="text-center mb-16 max-w-3xl mx-auto">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
               <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none mb-4">Contact Us</Badge>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Let's Connect</h2>
               <p className="text-muted-foreground text-lg">
                 Have questions or want to learn more about our club? Reach out to us and we'll get back to you soon.
               </p>
-            </div> */}
+            </div>
 
+            
             <div className="container flex flex-row justify-center">
               <div className="space-y-8">
                 <div className="space-y-4 flex-col items-center justify-center text-center">
@@ -391,42 +393,86 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Contact form (commented for now) */}
-              {/* <div><ContactForm /></div> */}
+              Contact form (commented for now)
+              <div><ContactForm /></div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* Call to Action with Acrylic effect */}
-        <section className="w-full py-16 md:py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0078D4] to-[#005A9E]"></div>
+{/* Call to Action with Community Design */}
+<section className="w-full py-16 md:py-24 relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-r from-[#0078D4] to-[#005A9E]"></div>
 
-          <div className="container relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <Badge className="bg-white/20 text-white hover:bg-white/30 border-none mb-6">
-                Join Our Community
-              </Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
-                Ready to Start Your Tech Journey?
-              </h2>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Become a member of our Microsoft Student Club and unlock a world of opportunities, resources, and
-                connections.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-blue-600 text-white depth-2 motion-scale">
-                  <Link href="/register">
-                    Register Now
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" className="bg-blue-600 text-white hover:bg-blue-700 depth-1 motion-scale">
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
+  <div className="container relative z-10">
+    <div className="max-w-4xl mx-auto text-center">
+      {/* Main Heading */}
+      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
+        Join Our Community <span className="text-white">Now</span>
+      </h2>
+      
+      {/* Description */}
+      <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Experience the benefits of our community. No obligations, just join and explore.
+      </p>
+      
+      {/* Community Member Avatars */}
+      <div className="flex justify-center items-center gap-2 mb-6">
+        <div className="flex -space-x-2">
+          {/* Display first 6 active committee members */}
+          {committeeMembers
+            .filter(member => member.Status === "Active")
+            .slice(0, 6)
+            .map((member, index) => (
+              <div 
+                key={member.id} 
+                className="w-12 h-12 rounded-full border-3 border-white overflow-hidden bg-white/10 hover:scale-110 transition-transform duration-200"
+                title={member.name}
+              >
+                <img 
+                  src={member.image.split('?')[0]} // Remove query parameters
+                  alt={member.name} 
+                  className="w-full h-full object-cover"
+                />
               </div>
+            ))}
+          
+          {/* Show remaining count if there are more than 6 members */}
+          {committeeMembers.filter(member => member.Status === "Active").length > 6 && (
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full border-3 border-white flex items-center justify-center text-white font-bold text-sm">
+              {committeeMembers.filter(member => member.Status === "Active").length - 6}+
             </div>
-          </div>
-        </section>
+          )}
+          
+          {/* If less than 6 members, show placeholder */}
+          {committeeMembers.filter(member => member.Status === "Active").length < 6 && (
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full border-3 border-white flex items-center justify-center text-white font-bold text-sm">
+              10+
+            </div>
+          )}
+        </div>
+      </div>
+      
+      {/* Member Count */}
+      <p className="text-blue-100 mb-8">
+        Join 10,000+ developers in our community.
+      </p>
+      
+      {/* Join Button */}
+      <div className="flex justify-center">
+        <Button 
+          asChild 
+          size="lg" 
+          className="bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30 px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          <Link href="/register" className="flex items-center">
+            <span className="mr-2">●</span>
+            Join Now
+          </Link>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </>
   );
