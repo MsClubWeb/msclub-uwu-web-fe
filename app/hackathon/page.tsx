@@ -71,50 +71,35 @@ const prizes = [
 
 const timeline = [
   {
-    time: "Day 1 - 9:00 AM",
-    title: "Registration & Check-in",
-    description: "Welcome breakfast and team registration"
+    time: "Day 1",
+    title: "Introductory Session",
+    description: " Introduce the structure, rules, judging criteria, and expectations of HackMS’25. Explain the overall theme and goals to ensure all participants start with a clear understanding"
   },
   {
-    time: "10:00 AM",
-    title: "Opening Ceremony",
-    description: "Event kickoff, rules explanation, and challenge reveal"
+    time: "Day 2",
+    title: "Workshop 01",
+    description: " Hands-on workshop on application development using the .NET framework. Cover essential tools, best practices, and real-world examples for building scalable solutions."
   },
   {
-    time: "11:00 AM",
-    title: "Hacking Begins!",
-    description: "Teams start working on their solutions"
+    time: "Day 3",
+    title: "Ideathon",
+    description: "Teams generate creative ideas to solve real-world problems using Microsoft technologies. Submit a problem statement, proposed solution, target users, and a short pitch (oral or slides). Judging criteria: originality, relevance, feasibility, and potential impact. Top ideas advance to the next stage."
   },
   {
-    time: "1:00 PM",
-    title: "Lunch Break",
-    description: "Networking lunch with mentors and participants"
+    time: "Day 4",
+    title: "Workshop 02",
+    description: "Workshop focused on Microsoft Azure and related cloud services. Cover cloud computing fundamentals, deployment strategies, and integration techniques for hackathon projects."
   },
   {
-    time: "6:00 PM",
-    title: "Dinner & Networking",
-    description: "Evening meal and mentor consultations"
+    time: "Day 5",
+    title: "Designathon",
+    description: "Teams transform selected ideas into detailed designs, including mockups, work ows, diagrams, or wireframes. Deliverables: design documents, UI/UX layouts, user journeys, and system models. Judging criteria: clarity, completeness, user-friendliness, and alignment with the original idea."
   },
   {
-    time: "Day 2 - 9:00 AM",
-    title: "Final Sprint",
-    description: "Last chance to polish your projects"
+    time: "Day 6",
+    title: "HackMS’25 Final Hackathon",
+    description: "24-hour development sprint to build functional prototypes based on approved designs. Participants utilize Microsoft tools such as Azure, GitHub, Power Platform, and Visual Studio. Deliverables: working demo, source code, and nal presentation. Projects evaluated on functionality, technical implementation, creativity, and effective use of Microsoft technologies. The top-performing team will be declared the winner."
   },
-  {
-    time: "2:00 PM",
-    title: "Project Submissions",
-    description: "Submit your final projects and presentations"
-  },
-  {
-    time: "3:00 PM",
-    title: "Judging & Demos",
-    description: "Present your solutions to the judges"
-  },
-  {
-    time: "5:00 PM",
-    title: "Awards Ceremony",
-    description: "Winners announcement and prize distribution"
-  }
 ];
 
 const features = [
